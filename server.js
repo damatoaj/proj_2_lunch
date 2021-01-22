@@ -1,4 +1,5 @@
 require('dotenv').config();
+const axios = require('axios');
 const express = require('express');
 const layouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
@@ -36,7 +37,14 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   req.session.testVar = 'what up';
-  res.render('index');
+  let usdaURL = `https://api.nal.usda.gov/fdc/v1/foods/list?api_key=${process.env.USDA_API_KEY}`;
+  // let usdaURL = `https://api.nal.usda.gov/fdc/v1/`;
+  //use request to call the API
+  axios.get(usdaURL).then(apiResponse => {
+    let food = apiResponse.data;
+    res.send(food);
+    console.log(food)
+  });
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
@@ -46,6 +54,6 @@ app.get('/profile', isLoggedIn, (req, res) => {
 
 app.use('/auth', require('./routes/auth'));
 
-var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
+var server = app.listen(process.env.PORT || 4000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 4000}🎧`));
 
 module.exports = server;
