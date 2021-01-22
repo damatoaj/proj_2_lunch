@@ -5,9 +5,10 @@ const layouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const helmet = require('helmet');
 const session = require('express-session');
-const passport = require('./config/ppConfig')
+const passport = require('./config/ppConfig');
 const app = express();
-const isLoggedIn = require('./middleware/isLoggedIn')
+const db = require('./models');
+const isLoggedIn = require('./middleware/isLoggedIn');
 
 app.set('view engine', 'ejs');
 
@@ -35,6 +36,7 @@ app.use((req, res, next) => {
   next();
 })
 
+//list the info from the API on the homepage
 app.get('/', (req, res) => {
   req.session.testVar = 'what up';
   let usdaURL = `https://api.nal.usda.gov/fdc/v1/foods/list?api_key=${process.env.USDA_API_KEY}`;
@@ -42,10 +44,11 @@ app.get('/', (req, res) => {
   //use request to call the API
   axios.get(usdaURL).then(apiResponse => {
     let food = apiResponse.data;
-    res.send(food);
+    res.render('index', {food});
     console.log(food)
   });
 });
+
 
 app.get('/profile', isLoggedIn, (req, res) => {
   console.log(req.session.testVar);

@@ -1,3 +1,12 @@
 <h2>Homepage</h2>
 
 <%= currentUser ? currentUser.name : 'There is no user' %>
+</br>
+<main>
+<% food.forEach(function(food) { %>
+    <div>
+    <%= food.description %>
+    </div>
+<% }) %>
+
+</main>

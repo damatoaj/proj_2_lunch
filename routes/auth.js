@@ -4,7 +4,6 @@ const router = express.Router();
 const db = require('../models');
 const passport = require('../config/ppConfig');
 
-//mounted at /auth on the home page I want to display all of the foods from the USDA
 
 router.get('/signup', (req, res) => {
   res.render('auth/signup');
