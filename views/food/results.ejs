@@ -1,0 +1,31 @@
+<h1>This is my results.ejs</h1>
+<ul>
+    <% food.foods.forEach(food => { %>
+
+    <li>
+        <%= food.fdcId %>
+        </br>
+        <%= food.description %>
+        </br>
+        <% food.foodNutrients.forEach(nutrient => { %>
+            <% if (nutrient.nutrientName == 'Protein') { %>
+                <%= nutrient.nutrientName %> 
+                <%= nutrient.value %>
+                <%= nutrient.unitName %>
+            <% } %>
+            <% if (nutrient.nutrientName == 'Carbohydrate, by difference') { %>
+                 Carbohydrate  
+                <%= nutrient.value %>
+                <%= nutrient.unitName %>
+            <% } %>
+            <% if (nutrient.nutrientName == `Total lipid (fat)`) { %>
+                    <%= nutrient.nutrientName %>  
+                   <%= nutrient.value %>
+                   <%= nutrient.unitName %>    
+            <% } %>
+            
+            <% }) %>
+        </li>
+    <% }) %>
+</ul>
+    

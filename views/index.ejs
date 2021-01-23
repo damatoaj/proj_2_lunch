@@ -3,10 +3,25 @@
 <%= currentUser ? currentUser.name : 'There is no user' %>
 </br>
 <main>
-<% food.forEach(function(food) { %>
-    <div>
-    <%= food.description %>
-    </div>
-<% }) %>
+    <article>
+        <form action="food/results" method= "POST">
+            Food Item: <input type="text" name="description">
+            <input type="submit">
+        </form>
+    </article>
+    <% food.forEach(function(food) { %>
+        <div>
+             <%= food.description %>
+            <form method="POST" action="/">
+                <input hidden type="text" name="add-to-lunch" value="<%= food.description %>">
+                <button type="submit">Add to Lunch.ejs</button>
+            </form>
+            <form method="GET" action="/results/">
+                <input hidden type="text" name="show-data" value="<%= food.fdcId %>">
+                <button type="submit">Show Nutrition Data (results.ejs)</button>
+            </form>
+        </div>
+    </form>
+        <% }); %> 
 
 </main>

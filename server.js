@@ -8,7 +8,7 @@ const session = require('express-session');
 const passport = require('./config/ppConfig');
 const app = express();
 const db = require('./models');
-const isLoggedIn = require('./middleware/isLoggedIn');
+const isLoggedIn = require('./middleware/isLoggedIn')
 
 app.set('view engine', 'ejs');
 
@@ -36,7 +36,7 @@ app.use((req, res, next) => {
   next();
 })
 
-//list the info from the API on the homepage
+
 app.get('/', (req, res) => {
   req.session.testVar = 'what up';
   let usdaURL = `https://api.nal.usda.gov/fdc/v1/foods/list?api_key=${process.env.USDA_API_KEY}`;
@@ -49,13 +49,13 @@ app.get('/', (req, res) => {
   });
 });
 
-
 app.get('/profile', isLoggedIn, (req, res) => {
   console.log(req.session.testVar);
   res.render('profile');
 });
 
 app.use('/auth', require('./routes/auth'));
+app.use('/food', require('./routes/food'));
 
 var server = app.listen(process.env.PORT || 4000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 4000}🎧`));
 
