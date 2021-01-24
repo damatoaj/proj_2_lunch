@@ -26,6 +26,11 @@
             
             <% }) %>
         </li>
+        <form method="POST" action="/food/lunch">
+                <input type="hidden" name="description" value="<%= food.description%>">
+                <input type="hidden" name="fdcId" value="<%= food.fdcId%>">
+                <button type="submit">Add to Lunch</button>
+        </form>
     <% }) %>
 </ul>
     

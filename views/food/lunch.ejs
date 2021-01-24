@@ -1,1 +1,10 @@
 <h1>this is my lunch.ejs</h1>
+<ul>
+    <% console.log(food) %>
+    <% food.forEach(food => { %>
+    <li>
+        description <%= food.dataValues.description %>
+    </li>
+    <% }) %>
+</ul>
+
