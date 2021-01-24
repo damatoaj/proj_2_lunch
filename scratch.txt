@@ -6,3 +6,5 @@ sequelize db:migrate
 npm i dotenv ejs express express-ejs-layouts morgan pg sequelize
 
 added in constraints and validations
+
+sequelize model:create --LunchesFoods --attributes lunchId:integer,foodId:integer

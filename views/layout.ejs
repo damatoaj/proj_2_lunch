@@ -11,11 +11,14 @@
       <nav>
         <ul>
           <% if (currentUser) { %>
-          <li><a href="/auth/logout">Logout</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <% } else { %>
+            <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <% } else { %>
+          <li><a href="/">Home Page</li>
           <li><a href="/auth/signup">Signup</a></li>
           <li><a href="/auth/login">Login</a></li>
+          <li><a href="/food/lunch">Lunch</li>
+          <li><a href="/food/results"></a>Results</li>
           <% } %>
           
         </ul>
@@ -24,5 +27,21 @@
     <h1>Authentication</h1>
     <%- include('./partials/alerts.ejs') %>
     <%- body %>
+    <footer>
+      <span>
+        <address>
+          Arthur D'Amato </br>
+          Seattle, WA 
+        </address>
+      </span>
+      <span>
+        <p>
+        Social Media Links
+          <img src="../Images/linked_in_logo.svg">
+          <img src="../Images/instagram_icon.svg">
+          <img src="../Images/wordpress_logo.svg">
+        </p>
+      </span>
+    </footer>
   </body>
 </html>
