@@ -8,6 +8,9 @@
   </head>
   <body>
     <header>
+      <h1>
+        What's for Lunch?
+      </h1>
       <nav>
         <ul>
           <% if (currentUser) { %>
@@ -30,19 +33,17 @@
     <%- include('./partials/alerts.ejs') %>
     <%- body %>
     <footer>
-      <span>
+      <span class="column left">
         <address>
-          Arthur D'Amato </br>
-          Seattle, WA 
+        My name is: Arthur D'Amato </br>
+        Lives in: Seattle, WA </br>
+        Email: mr.arthurdamato@gmail.com
         </address>
       </span>
-      <span>
-        <p>
-        Social Media Links
-          <img src="../Images/linked_in_logo.svg">
-          <img src="../Images/instagram_icon.svg">
-          <img src="../Images/wordpress_logo.svg">
-        </p>
+      <span class="column right">
+        <img src="../Images/linked_in_logo.svg">
+        <img src="../Images/instagram_icon.svg">
+        <img src="../Images/wordpress_logo.svg">
       </span>
     </footer>
   </body>

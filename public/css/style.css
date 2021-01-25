@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 nav ul li {
   text-decoration: none;
   display: inline-block;
@@ -36,4 +40,43 @@ h1 {
 img {
   height: 100px;
   width: 100px;
+}
+
+footer {
+  border-style: 2px double black;
+  background-color: cornflowerblue;
+  color: whitesmoke;
+}
+
+header {
+  text-align: center;
+  border-style: 2px double black;
+  background-color: cornflowerblue;
+  color: whitesmoke;
+}
+
+main {
+  display:flex;
+  flex-wrap: wrap;
+  border-style: 2px solid black;
+}
+
+.foods {
+  border-style: 2px solid black;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+  height: 200px;
+}
+
+.left {
+  width: 25%;
+  text-align: left;
+}
+
+.right {
+  width: 75%;
+  text-align: right;
 }

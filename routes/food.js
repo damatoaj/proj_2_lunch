@@ -3,7 +3,9 @@ const axios = require('axios');
 const router = express.Router();
 const db = require('../models');
 const passport = require('../config/ppConfig');
+const methodOverride = require('method-override');
 
+router.use(methodOverride('_method'));
 
 // GET the results page
 router.get('/results', (req, res) => {
@@ -49,7 +51,14 @@ router.get ('/lunch', (req, res) => {
 // /lunch POST save all food items on the "menu" to a lunch
 
 // /lunch DELETE take an ingredient out of the "menu"
-
+router.delete('/lunch', (req, res) => {
+   db.food.destroy({
+        where: {fdcId:req.params.fdcId}
+   }).then((food) =>{
+       console.log(rec.params.fdcId)
+       res.redirect('food/lunch')
+   }) 
+});
 // /profile GET render username and saved lunches (name and ingredients)
 
 // /profile DELETE delete lunches from the profile page

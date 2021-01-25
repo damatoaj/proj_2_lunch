@@ -3,7 +3,9 @@ const axios = require('axios');
 const router = express.Router();
 const db = require('../models');
 const passport = require('../config/ppConfig');
+const methodOverride = require('method-override');
 
+router.use(methodOverride('_method'));
 
 router.get('/signup', (req, res) => {
   res.render('auth/signup');

@@ -2,15 +2,15 @@
 
 <%= currentUser ? currentUser.name : 'There is no user' %>
 </br>
+<article>
+    <form action="food/results" method= "POST">
+        Food Item: <input type="text" name="description">
+        <input type="submit">
+    </form>
+</article>
 <main>
-    <article>
-        <form action="food/results" method= "POST">
-            Food Item: <input type="text" name="description">
-            <input type="submit">
-        </form>
-    </article>
     <% food.forEach(function(food) { %>
-        <div>
+        <div class="foods">
              <%= food.description %>
             <form method="POST" action="/">
                 <input hidden type="text" name="add-to-lunch" value="<%= food.description %>">
@@ -23,5 +23,4 @@
         </div>
     </form>
         <% }); %> 
-
 </main>

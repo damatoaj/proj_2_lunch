@@ -4,6 +4,9 @@
     <% food.forEach(food => { %>
     <li>
         description <%= food.dataValues.description %>
+        <form method="POST" action="/food/lunch/<%= food.dataValues.fdcId %>/?_method=DELETE">
+            <button type="submit" value="DELETE">Delete From Menu</button>
+          </form>
     </li>
     <% }) %>
 </ul>

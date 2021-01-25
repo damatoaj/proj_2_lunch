@@ -8,7 +8,10 @@ const session = require('express-session');
 const passport = require('./config/ppConfig');
 const app = express();
 const db = require('./models');
-const isLoggedIn = require('./middleware/isLoggedIn')
+const isLoggedIn = require('./middleware/isLoggedIn');
+const methodOverride = require('method-override');
+
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 
