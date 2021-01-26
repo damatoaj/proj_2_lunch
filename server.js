@@ -54,11 +54,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
-  db.lunch.findAll()
+  db.lunch.findAll({
+    where: {
+      userId: req.user.id
+    }
+  })
   .then((lunch) => {
     // console.log(req.session.testVar);
-    console.log(currentUser)
-    res.render('profile', {lunch});
+    console.log(res.locals.currentUser)
+    let user = req.user;
+    res.render('profile', {lunch:lunch, user:user});
   })
 });
 
@@ -71,6 +76,16 @@ app.post('/', (req, res) => {
       // console.log(req.user, '00000000000000000000000')
       // console.log(`${lunch} has been made ----------`)
       res.redirect('/')
+  })
+})
+
+//delete a posted lunch from the user's database
+app.delete('profile/:id', (req, res) => {
+  db.lunch.destroy({
+    where: {id:req.params.id}
+  }).then((lunch) => {
+    console.log(req.params.id, '---------------------')
+    res.redirect('/profile')
   })
 })
 
