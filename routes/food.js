@@ -47,12 +47,23 @@ router.get('/results', (req, res) => {
 // /:fdcId POST click on the button on the page to add the food to a lunch
 
 // /lunch GET displays all food items associated with lunch before being saved to lunch database
-router.get ('/lunch', (req, res) => {
-    console.log(req, '-----------------------')
+router.get ('/foods', (req, res) => {
     db.food.findAll()
     .then((food) => {
-        res.render('food/lunch', {food})
+        res.render('food/foods', {food})
+    }).catch((error) => {
+        console.log(error);
     })
+});
+// when doing the DB call, pick one only and include the food/lunch relationship in the db call
+// /lunch GET displays the lunches in a dropdown menu that can then be updated;syntax for associated calls?
+router.get ('/lunch', (req, res) => {
+db.lunch.findAll()
+.then((lunch) => {
+    res.render('food/lunch', {lunch})
+}).catch((error) => {
+    console.log(error);
+})
 });
 
 
