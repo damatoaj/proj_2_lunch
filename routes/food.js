@@ -24,7 +24,7 @@ router.post('/results', (req, res) => {
     })
 });
 
-// POST a food item to lunch from the searched foods
+// POST a food item to lunch page from the searched foods
 router.post('/lunch', (req, res) => {
     db.food.create({
         description: req.body.description,
@@ -72,7 +72,6 @@ router.delete('/lunch/:fdcId', (req, res) => {
 //     res.render('profile');
 //     })
 // });
-// /profile DELETE delete lunches from the profile page
 
 module.exports = router;
 

@@ -80,7 +80,7 @@ app.post('/', (req, res) => {
 })
 
 //delete a posted lunch from the user's database
-app.delete('profile/:id', (req, res) => {
+app.delete('/profile/:id', (req, res) => {
   db.lunch.destroy({
     where: {id:req.params.id}
   }).then((lunch) => {
