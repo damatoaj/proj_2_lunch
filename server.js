@@ -47,15 +47,32 @@ app.get('/', (req, res) => {
   //use request to call the API
   axios.get(usdaURL).then(apiResponse => {
     let food = apiResponse.data;
-    res.render('index', {food});
-    console.log(food)
+    let user = req.user;
+    res.render('index', {food: food.slice(0, 1), user:user});
+    // console.log(food)
   });
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
-  console.log(req.session.testVar);
-  res.render('profile');
+  db.lunch.findAll()
+  .then((lunch) => {
+    // console.log(req.session.testVar);
+    console.log(currentUser)
+    res.render('profile', {lunch});
+  })
 });
+
+//post a new lunch here
+app.post('/', (req, res) => {
+  db.lunch.create({
+      name: req.body.name,
+      userId: req.body.userId
+  }).then((lunch) => {
+      // console.log(req.user, '00000000000000000000000')
+      // console.log(`${lunch} has been made ----------`)
+      res.redirect('/')
+  })
+})
 
 app.use('/auth', require('./routes/auth'));
 app.use('/food', require('./routes/food'));

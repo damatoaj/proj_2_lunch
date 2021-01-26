@@ -4,9 +4,18 @@
 </br>
 <article>
     <form action="food/results" method= "POST">
-        Food Item: <input type="text" name="description">
+        Food Item: <input type="search" name="description">
         <input type="submit">
     </form>
+</article>
+<article>
+    <form id="lunchForm" action="/" method="POST">
+        <label for="lunch-name">Lunch Name</label>
+        <input type="text" name="name">
+        <input type="hidden" name="userId" id="userId" value="<%= user.dataValues.id %>">
+        <input type="submit">
+    </form>
+    <%console.log(user.dataValues.id)%>
 </article>
 <main>
     <% food.forEach(function(food) { %>
