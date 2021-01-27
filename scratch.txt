@@ -8,3 +8,41 @@ npm i dotenv ejs express express-ejs-layouts morgan pg sequelize
 added in constraints and validations
 
 sequelize model:create --LunchesFoods --attributes lunchId:integer,foodId:integer
+
+router.get ('/foods', (req, res) => {
+    // let food;
+    // let lunch;
+    db.lunch.findAll({
+        where: {
+            userId: '1'
+        }
+    }).then(res => {
+    //    let lunch = lunch;
+        db.food.findAll({
+            where: {
+                id: '35'
+            }
+        })
+    }).then(res => {
+        // let food = food;
+        console.log(lunch)
+        console.log(food)
+        res.render('/food/foods', {food:food, lunch:lunch})
+    })
+
+    <a href="/food<%=food.dataValues.fdcId %>"><%= food.dataValues.description> %></a>
+
+        db.user.findOne({
+        where: {id:1}
+    }).then(user => {
+        console.log(user, '---------------------')
+        db.lunch.findAll({
+        where: {id: 35},
+        include: [db.food]
+    })
+}).then(lunch => {
+        console.log(lunch, '---------------------')
+            console.log(`this ${lunch} contains these ${food}`)
+            res.render('/food/foods', {lunch:lunch, food:food})
+    })
+});

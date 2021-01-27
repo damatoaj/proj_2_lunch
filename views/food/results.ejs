@@ -3,10 +3,9 @@
     <% food.foods.forEach(food => { %>
 
     <li>
-        <%= food.fdcId %>
-        </br>
+        <form>
         <%= food.description %>
-        </br>
+        <option>
         <% food.foodNutrients.forEach(nutrient => { %>
             <% if (nutrient.nutrientName == 'Protein') { %>
                 <%= nutrient.nutrientName %> 
@@ -23,7 +22,7 @@
                    <%= nutrient.value %>
                    <%= nutrient.unitName %>    
             <% } %>
-            
+        </form>
             <% }) %>
         </li>
         <form method="POST" action="/food/lunch">

@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.food.belongsToMany(models.lunch, {through: "LunchesFoods"})
+      models.food.belongsToMany(models.lunch, {through: "lunches_foods"})
     }
   };
   food.init({
-    fdcId: DataTypes.INTEGER,
+    fdcid: DataTypes.INTEGER,
     description: DataTypes.STRING
   }, {
     sequelize,
