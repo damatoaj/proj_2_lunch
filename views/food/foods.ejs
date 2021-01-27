@@ -2,19 +2,19 @@
 <h2>Make these ingredients into a lunch to save to your profile</h2>
 <ul>
     
-    <% lunch.food.forEach(food => { %>
+    <% food.forEach(food => { %>
         <li>
             <%= food.dataValues.description %>
             <form method="POST" action="/food/foods/">
                 <select name="lunchId">
-                    <% lunch.forEach(lunch => { %>
+                    <% lunches.forEach(lunch => { %>
                     <option value="<%= lunch.id %>"><%= lunch.name %></option>
                     <% }); %>
                 </select>
-                <input hidden type="text" name="fdcId" value="<%= food.dataValues.fdcId %>">
+                <input hidden type="text" name="foodId" value="<%= food.id %>">
                 <button type="submit">Add to Lunch</button>
             </form>
-            <form method="POST" action="/food/foods/<%= food.dataValues.fdcId %>/?_method=DELETE">
+            <form method="POST" action="/food/foods/<%= food.id%>/?_method=DELETE">
                 <button type="submit" value="DELETE">Delete From Menu</button>
             </form>
         </li>

@@ -51,12 +51,13 @@ router.get('/results', (req, res) => {
 
 // /lunch GET displays all food items favorited by the user 
 router.get('/foods', (req, res) => {
-    // 
     console.log('---------------------')
     req.user.getFood()
     .then(food => {
         console.log(food, '---------------------')
-        res.render('food/foods', {food:food})
+        req.user.getLunches().then(lunches => {
+            res.render('food/foods', {food:food, lunches:lunches})
+        })
     })
 });
 
@@ -65,21 +66,9 @@ router.get('/foods', (req, res) => {
 //body needs lunch_Id and food_Id
 //find each of those items by Pk and then associate them
 router.post('/foods', (req, res) => {
-    res.send(req.body)
-    db.lunch.findOrCreate({
-        where: {
-            name: 'breakfast',
-        },
-        defaults: {
-            userId: 1
-        },
-        include: [db.food]
-    }).then(([lunch, create]) => {
-        db.food.findOrCreate({ //change to find by Pk, the .then statement will be almost the same
-            where: {
-                description: 'GRANOLA'
-            }
-        }).then(([food, created]) => {
+    db.lunch.findByPk(req.body.lunchId)
+    .then(lunch => {
+        db.food.findByPk(req.body.foodId).then(food => {
             lunch.addFood(food).then(relation => {
                 console.log(lunch.name, '$$$$$$$$$$$$$$$$$$')
                 console.log(food.description, '##################')
