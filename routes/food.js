@@ -30,12 +30,13 @@ router.post('/results', (req, res) => {
 // associate the food to the user via req.user
 router.post('/lunch', (req, res) => {
     db.food.findOrCreate({
-        description: req.body.description,
-        fdcid: req.body.fdcId
+        where: {description: req.body.description,
+        fdcid: req.body.fdcId}
     }).then(([food, created]) => {
-        food.addUser(req.user) //won't work yet
-        // console.log('---------add to lunch--------', food.dataValues);
-        // change from redirect to render, need to figure out how to pass the searched data into the page
+        food.addUser(req.user).then(relation => {
+            console.log(`+++++++++++${food.description} added to ${req.user}`)
+            console.log(relation)
+        })
         res.render('food/results', {food:foodData})
     })
 });
