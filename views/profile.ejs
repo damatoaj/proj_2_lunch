@@ -4,7 +4,7 @@
 <%= currentUser.name %>
 <ul>
     <% lunch.forEach(lunch => { %>     
-    <li><%= lunch.name%></li>
+    <li><a href="/profile/<%= lunch.id %>"><%= lunch.name%></a></li>
     <form method="POST" action="/profile/<%= lunch.id %>?_method=DELETE">
         <button type="submit"  value="DELETE">Delete Lunch</button>
       </form>

@@ -28,5 +28,18 @@
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
     "sequelize": "^6.4.0"
-  }
+  },
+  "description": "Express authentication template using Passport + flash messages + custom middleware",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damatoaj/proj_2_lunch.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/damatoaj/proj_2_lunch/issues"
+  },
+  "homepage": "https://github.com/damatoaj/proj_2_lunch#readme"
 }

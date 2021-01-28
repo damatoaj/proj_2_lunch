@@ -91,19 +91,19 @@ router.get ('/lunch', (req, res) => {
 });
                                 
 // /:fdcId GET click on the food item to reveal nutrition contents
-router.get('/:fdcId', (req, res) => {
-    db.food.findOne({
-        where: {
-            fdcid: req.params.fdcId
-        }
-    }).then(food => {
-        let foodURL = `https://api.nal.usda.gov/fdc/v1/foods/${food.fdcid}`;
-            axios.get(foodURL).then(apiResponse => {
-            let food = apiResponse.data;
-            res.render('food/show', {food});
-        })
-    })
-})
+// router.get('/:fdcId', (req, res) => {
+//     db.food.findOne({
+//         where: {
+//             fdcid: req.params.fdcId
+//         }
+//     }).then(food => {
+//         let foodURL = `https://api.nal.usda.gov/fdc/v1/foods/${food.fdcid}`;
+//             axios.get(foodURL).then(apiResponse => {
+//             let food = apiResponse.data;
+//             res.render('food/show', {food});
+//         })
+//     })
+// })
 
 // /lunch DELETE take an ingredient out of the "menu"
 router.delete('/foods/:fdcId', (req, res) => {

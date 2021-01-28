@@ -89,6 +89,20 @@ app.delete('/profile/:id', (req, res) => {
   })
 })
 
+//make a show page for each breakfast with the foods in it
+app.get('/profile/:id', (req, res) => {
+  db.lunch.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [db.food]
+  }).then(lunch => {
+    console.log(lunch, '------------------')
+    console.log(lunch.food)
+    res.render('show', {lunch})
+  })
+})
+
 app.use('/auth', require('./routes/auth'));
 app.use('/food', require('./routes/food'));
 

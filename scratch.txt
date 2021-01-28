@@ -47,3 +47,29 @@ router.get ('/foods', (req, res) => {
             res.render('/food/foods', {lunch:lunch, food:food})
     })
 });
+
+app.get('/profile', isLoggedIn, (req, res) => {
+  db.lunch.findAll({
+    where: {
+      userId: req.user.id,
+      include: [db.food]
+    }
+  })
+  .then((lunch) => {
+    // console.log(req.session.testVar);
+    console.log(res.locals.currentUser)
+    let user = req.user;
+    res.render('profile', {lunch:lunch, lunch.food, user:user});
+  })
+});
+
+<%= currentUser.name %>
+<ul>
+    <% lunch.forEach(lunch => { %>     
+    <li><%= lunch.name%></li>
+    <form method="POST" action="/profile/<%= lunch.id %>?_method=DELETE">
+        <button type="submit"  value="DELETE">Delete Lunch</button>
+      </form>
+     
+    <% }); %>
+</ul>
