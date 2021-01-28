@@ -1,0 +1,20 @@
+<header>
+    <h1 id="bannerTitle">
+        Make a Recipe!
+    </h1>
+    <nav>
+        <ul id="navList">
+            <h2 id="bannerId"><%= currentUser ? currentUser.name : 'Log Or Sign Up' %></h2>
+            <% if (currentUser) { %>
+                <li class="navLi"><a href="/">Home Page</a></li>
+                <li class="navLi"><a href="/food/foods">Foods for Lunch</a></li>
+                <li class="navLi"><a href="/profile">Profile</a></li>
+                <li class="navLi"><a href="/auth/logout">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/">Home Page</li>
+                        <li class="navLi"><a href="/auth/login">Login</a></li>
+                        <li class="navLi"><a href="/auth/signup">Signup</a></li>
+                        <% } %>           
+                    </ul>
+                </nav>
+            </header>

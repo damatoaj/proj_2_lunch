@@ -2,6 +2,17 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  background-color: lavenderblush;
+  color:steelblue;
+  padding: 5px;
+  border-radius: 5px;;
+}
+
+.imageLink {
+  background-color:  cornflowerblue;
+}
 nav ul li {
   text-decoration: none;
   display: inline-block;
@@ -10,8 +21,13 @@ nav ul li {
 
 h1 {
   color: chartreuse;
+  text-align: center;
+  letter-spacing: 2px;;
 }
 
+h2 {
+  text-align: center;
+}
 .alert-container {
   width: 50vw;
   margin: 0 auto;
@@ -40,21 +56,42 @@ h1 {
 img {
   height: 100px;
   width: 100px;
+  border-style: solid;
+  border-width: 5px; 
+  border-color: black;
+  border-radius: 25px;
+  background-color: whitesmoke;
 }
 
 footer {
-  border-style: 2px double black;
+  border: 2px double black;
   background-color: cornflowerblue;
   color: whitesmoke;
+  height: 150px;
+  margin: 0;
+  padding: 0;
 }
 
 header {
   text-align: center;
-  border-style: 2px double black;
+  border: 2px double black;
   background-color: cornflowerblue;
   color: whitesmoke;
+  padding: 0;
+  margin: 0;
+  height: 150px;
+  width: 100%;
 }
 
+nav {
+  border: solid 5px black;
+  padding: 0px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+}
 main {
   display:flex;
   flex-wrap: wrap;
@@ -72,11 +109,46 @@ main {
 }
 
 .left {
+  margin-top: 0px;
   width: 25%;
   text-align: left;
+  border:solid 2px cornsilk;
+  border-radius: 20px;;
+  height: 130px;
 }
 
 .right {
   width: 75%;
   text-align: right;
+  border:solid 2px cornsilk;
+  border-radius: 20px;;
+  height: 130px;
 }
+
+#bannerId {
+  display: inline-block;
+  left: 0px;
+  letter-spacing: 2px;
+  padding: 0px 200px 0px 0px;
+  margin: 10px;
+  border-right: dotted 5px black;
+  text-align: left;
+}
+
+#bannerTitle {
+  margin: 0 ;
+  padding: 0;
+  height: 25px;
+  letter-spacing: 3px;
+}
+
+#navList {
+  padding: 0;
+  margin: 0;
+}
+
+.navLi {
+  padding-left: 20px;
+  padding-right: 0;
+}
+

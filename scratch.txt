@@ -73,3 +73,37 @@ app.get('/profile', isLoggedIn, (req, res) => {
      
     <% }); %>
 </ul>
+
+
+app.get('/', (req, res) => {
+  let usdaURL = `https://api.nal.usda.gov/fdc/v1/foods/list?api_key=${process.env.USDA_API_KEY}`;
+  axios.get(usdaURL).then(apiResponse => {
+    let food = apiResponse.data;
+    let user = req.user;
+    res.render('index', {food: food.slice(0, 1), user:user});
+  });
+});
+
+<main>
+    <% food.forEach(function(food) { %>
+        <div class="foods">
+             <%= food.description %>
+            <form method="POST" action="/">
+                <input hidden type="text" name="add-to-lunch" value="<%= food.description %>">
+                <button type="submit">Add to Lunch.ejs</button>
+            </form>
+            <form method="GET" action="/results/">
+                <input hidden type="text" name="show-data" value="<%= food.fdcId %>">
+                <button type="submit">Show Nutrition Data (results.ejs)</button>
+            </form>
+        </div>
+    </form>
+        <% }); %> 
+</main>
+
+ <%= lunch.food[0].description%>
+
+ <%=  lunch.name %>
+<% lunch.food.forEach(lunch => { %>
+    <%= lunch.dataValues%>
+<% }); %>

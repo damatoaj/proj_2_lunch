@@ -41,16 +41,8 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-  req.session.testVar = 'what up';
-  let usdaURL = `https://api.nal.usda.gov/fdc/v1/foods/list?api_key=${process.env.USDA_API_KEY}`;
-  // let usdaURL = `https://api.nal.usda.gov/fdc/v1/`;
-  //use request to call the API
-  axios.get(usdaURL).then(apiResponse => {
-    let food = apiResponse.data;
     let user = req.user;
-    res.render('index', {food: food.slice(0, 1), user:user});
-    // console.log(food)
-  });
+    res.render('index', {user:user});
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
@@ -60,7 +52,6 @@ app.get('/profile', isLoggedIn, (req, res) => {
     }
   })
   .then((lunch) => {
-    // console.log(req.session.testVar);
     console.log(res.locals.currentUser)
     let user = req.user;
     res.render('profile', {lunch:lunch, user:user});
@@ -73,8 +64,6 @@ app.post('/', (req, res) => {
       name: req.body.name,
       userId: req.body.userId
   }).then((lunch) => {
-      // console.log(req.user, '00000000000000000000000')
-      // console.log(`${lunch} has been made ----------`)
       res.redirect('/')
   })
 })
@@ -97,11 +86,11 @@ app.get('/profile/:id', (req, res) => {
     },
     include: [db.food]
   }).then(lunch => {
-    console.log(lunch, '------------------')
-    console.log(lunch.food)
     res.render('show', {lunch})
   })
-})
+});
+
+
 
 app.use('/auth', require('./routes/auth'));
 app.use('/food', require('./routes/food'));

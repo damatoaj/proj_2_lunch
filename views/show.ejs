@@ -1,6 +1,8 @@
-<h1>Did you want to learn more about your food?</h1>
+<h1>What's in your recipe?</h1>
+<h2><%=  lunch.name %></h2>
 
-<%=  lunch.name %>
-<%= lunch.food[0].description%>
-<%= %>
-<%= %>
+
+<% lunch.dataValues.food.forEach(lunch => { %>
+    <%= lunch.description%>
+<% }); %>
+

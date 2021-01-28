@@ -8,44 +8,8 @@
   </head>
   <body>
     <%- include('./partials/alerts.ejs') %>
-    <header>
-      <h1>
-        What's for Lunch?
-      </h1>
-      <nav>
-        <ul>
-          <% if (currentUser) { %>
-            <li><a href="/">Home Page</li>
-              <li><a href="/food/foods">Foods for lunch</li>
-              <li><a href="/food/lunch">Lunch</li>
-                <li><a href="/auth/logout">Logout</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <% } else { %>
-                  <li><a href="/">Home Page</li>
-                    <li><a href="/auth/signup">Signup</a></li>
-                    <li><a href="/auth/login">Login</a></li>
-                    <li><a href="/food/lunch">Lunch</li>
-                      <li><a href="/food/results"></a>Results</li>
-                      <% } %>
-                      
-                    </ul>
-                  </nav>
-                </header>
-                <h1>Authentication</h1>
-  <%- body %>
-    <footer>
-      <span class="column left">
-        <address>
-          My name is: Arthur D'Amato </br>
-          Lives in: Seattle, WA </br>
-          Email: mr.arthurdamato@gmail.com
-        </address>
-      </span>
-      <span class="column right">
-        <img src="../Images/linked_in_logo.svg">
-        <img src="../Images/instagram_icon.svg">
-        <img src="../Images/wordpress_logo.svg">
-      </span>
-    </footer>
+    <%- include('./partials/header.ejs') %>
+    <%- body %>
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>

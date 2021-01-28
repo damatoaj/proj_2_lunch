@@ -14,12 +14,8 @@ let foodData;
 router.post('/results', (req, res) => {
     axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${process.env.USDA_API_KEY}&query=${req.body.description}`)
     .then(response => {
-        // console.log("---------------emoji----------", response.data)
         let food = response.data;
         foodData = response.data;
-        // console.log(food.foods[0]);
-        // console.log(food.score);
-        // console.log(food.fdcId);
         res.render('food/results', {food:food})
     })
 });
