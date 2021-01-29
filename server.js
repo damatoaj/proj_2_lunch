@@ -90,8 +90,6 @@ app.get('/profile/:id', (req, res) => {
   })
 });
 
-
-
 app.use('/auth', require('./routes/auth'));
 app.use('/food', require('./routes/food'));
 

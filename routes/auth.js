@@ -44,8 +44,7 @@ router.post('/signup', (req,res) => {
       req.flash('error', err.message);
       res.redirect('/auth/signup')
       //if there is an error, it's probably a validation error so return to /auth/signup
-  })
-  
+  })  
 });
 
 
