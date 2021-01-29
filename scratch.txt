@@ -107,3 +107,5 @@ app.get('/', (req, res) => {
 <% lunch.food.forEach(lunch => { %>
     <%= lunch.dataValues%>
 <% }); %>
+
+heroku addons:create heroku-postgresql:hobby-dev

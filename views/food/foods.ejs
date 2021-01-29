@@ -11,7 +11,7 @@
                         <% }); %>
                     </select>
                     <input hidden type="text" name="foodId" value="<%= food.id %>">
-                    <button type="submit">Add to Lunch</button>
+                    <button type="submit">Add to Recipe</button>
                 </form>
                 <form method="POST" action="/food/foods/<%= food.fdcid%>/?_method=DELETE">
                     <button type="submit" value="DELETE">Delete From Menu</button>
