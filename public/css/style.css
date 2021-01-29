@@ -1,32 +1,75 @@
 * {
   box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+body {
+  background-image:url('../Images/food_bowl_1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+main {
+  text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+#home {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 100px;
+}
 a {
   text-decoration: none;
-  background-color: lavenderblush;
-  color:steelblue;
+  color:#1e2420;
   padding: 5px;
-  border-radius: 5px;;
+  border-radius: 5px; 
 }
 
 .imageLink {
-  background-color:  cornflowerblue;
+  padding: 0;
+  margin:0;
+  height:50px;
 }
 nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
+  margin-bottom: 10px;
 }
 
 h1 {
   color: chartreuse;
   text-align: center;
-  letter-spacing: 2px;;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px black;
 }
 
 h2 {
   text-align: center;
+  display: block;
+  width: 100%;
+  letter-spacing: 3px;
+  text-shadow: 1px 0px black, 0 1px black, -1px 0 black, 0 -1px black;
+  color:#e9ebf0;
+  font-size: 30px;
+}
+
+h3 {
+  background-color: cornsilk;
+  background-blend-mode: lighten;
+  border-radius: 5px;
+  border: 2px solid black;
+  margin-bottom: 0;
+}
+form {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 0px 10px, 10px, 10px;
+  background-color: cornsilk;
+  background-blend-mode: lighten;
+  
 }
 .alert-container {
   width: 50vw;
@@ -61,21 +104,25 @@ img {
   border-color: black;
   border-radius: 25px;
   background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
 }
 
 footer {
   border: 2px double black;
-  background-color: cornflowerblue;
-  color: whitesmoke;
+  background-image:radial-gradient(cornflowerblue, #1e2420);  color: whitesmoke;
   height: 150px;
-  margin: 0;
+  margin-top: 20px;
   padding: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
 }
 
 header {
   text-align: center;
   border: 2px double black;
-  background-color: cornflowerblue;
+  background-image:radial-gradient(cornflowerblue, #1e2420);
   color: whitesmoke;
   padding: 0;
   margin: 0;
@@ -84,13 +131,11 @@ header {
 }
 
 nav {
-  border: solid 5px black;
   padding: 0px;
   margin: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-
 }
 main {
   display:flex;
@@ -106,33 +151,36 @@ main {
   float: left;
   padding: 10px;
   height: 200px;
+  margin-top:10px;
 }
 
 .left {
-  margin-top: 0px;
+  margin-top: 10px;
   width: 25%;
   text-align: left;
   border:solid 2px cornsilk;
-  border-radius: 20px;;
+  border-radius: 30px 100px 100px 30px;
   height: 130px;
+
 }
 
 .right {
   width: 75%;
   text-align: right;
   border:solid 2px cornsilk;
-  border-radius: 20px;;
+  border-radius: 100px 60px 60px 100px;
   height: 130px;
 }
 
 #bannerId {
-  display: inline-block;
   left: 0px;
   letter-spacing: 2px;
-  padding: 0px 200px 0px 0px;
+  padding: 0px 100px 0px 0px;
   margin: 10px;
   border-right: dotted 5px black;
-  text-align: left;
+  text-decoration-line: underline;
+  text-align: center;
+  text-shadow: 1px 0 black, -1px 0 black, 0 1px black, 0 -1px black;
 }
 
 #bannerTitle {
@@ -143,12 +191,54 @@ main {
 }
 
 #navList {
-  padding: 0;
-  margin: 0;
+  padding: 0px;
+  margin: 0px, 0px, 0px, 0px;
+  width: 700px;
 }
 
 .navLi {
-  padding-left: 20px;
+  padding-left: 0px;
   padding-right: 0;
+  box-shadow: 7px 10px 5px slategrey;
+  background-color:whitesmoke;
+  border-radius: 2px;
 }
 
+.ejsUl {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-decoration: underline;
+  justify-self: center;
+}
+
+.ejsLi {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 20px, 20px, 20px, 10px;
+  height: 0px;
+}
+
+.ejsLI {
+  background-color: cornsilk;
+  background-blend-mode: lighten;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 20px, 20px, 20px, 10px;
+  height: 50px;
+  border: 2px solid black;
+}
+#ingBtn {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px, 10px, 10px, 10px;
+  background-color: cornsilk;
+  background-blend-mode: lighten;
+}
+
+.nutrientLi {
+  padding: 0px;
+}

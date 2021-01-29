@@ -1,25 +1,25 @@
-<h1>this is my lunch.ejs</h1>
-<h2>Make these ingredients into a lunch to save to your profile</h2>
-<ul>
-    
-    <% food.forEach(food => { %>
-        <li>
-            <%= food.dataValues.description %>
-            <form method="POST" action="/food/foods/">
-                <select name="lunchId">
-                    <% lunches.forEach(lunch => { %>
-                    <option value="<%= lunch.id %>"><%= lunch.name %></option>
-                    <% }); %>
-                </select>
-                <input hidden type="text" name="foodId" value="<%= food.id %>">
-                <button type="submit">Add to Lunch</button>
-            </form>
-            <form method="POST" action="/food/foods/<%= food.id%>/?_method=DELETE">
-                <button type="submit" value="DELETE">Delete From Menu</button>
-            </form>
-        </li>
+<main>
+    <h2>Use These Ingredients In Your Recipe</h2>
+    <ul class="ejsLi">
+        <% food.forEach(food => { %>
+            <li>
+                <h3><%= food.dataValues.description %></h3>
+                <form method="POST" action="/food/foods/">
+                    <select name="lunchId">
+                        <% lunches.forEach(lunch => { %>
+                        <option value="<%= lunch.id %>"><%= lunch.name %></option>
+                        <% }); %>
+                    </select>
+                    <input hidden type="text" name="foodId" value="<%= food.id %>">
+                    <button type="submit">Add to Lunch</button>
+                </form>
+                <form method="POST" action="/food/foods/<%= food.fdcid%>/?_method=DELETE">
+                    <button type="submit" value="DELETE">Delete From Menu</button>
+                </form>
+            </li>
         <% }) %>
     </ul>
+</main>
 
     
     

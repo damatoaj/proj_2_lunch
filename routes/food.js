@@ -42,15 +42,11 @@ router.get('/results', (req, res) => {
     res.render('food/results', {food:foodData})
 });
 
-
-// /:fdcId POST click on the button on the page to add the food to a lunch
-
 // /lunch GET displays all food items favorited by the user 
 router.get('/foods', (req, res) => {
     console.log('---------------------')
     req.user.getFood()
     .then(food => {
-        console.log(food, '---------------------')
         req.user.getLunches().then(lunches => {
             res.render('food/foods', {food:food, lunches:lunches})
         })
@@ -66,40 +62,11 @@ router.post('/foods', (req, res) => {
     .then(lunch => {
         db.food.findByPk(req.body.foodId).then(food => {
             lunch.addFood(food).then(relation => {
-                console.log(lunch.name, '$$$$$$$$$$$$$$$$$$')
-                console.log(food.description, '##################')
-                console.log(`${lunch.name} includes ${food.description}`)
-                res.redirect('/')
+                res.redirect('/food/foods')
             })
         })
     })
-})
-                                
-// when doing the DB call, pick one only and include the food/lunch relationship in the db call
-// /lunch GET displays the lunches in a dropdown menu that can then be updated;syntax for associated calls?
-router.get ('/lunch', (req, res) => {
-    db.lunch.findAll()
-    .then((lunch) => {
-        res.render('food/lunch', {lunch})
-    }).catch((error) => {
-        console.log(error);
-    })
 });
-                                
-// /:fdcId GET click on the food item to reveal nutrition contents
-// router.get('/:fdcId', (req, res) => {
-//     db.food.findOne({
-//         where: {
-//             fdcid: req.params.fdcId
-//         }
-//     }).then(food => {
-//         let foodURL = `https://api.nal.usda.gov/fdc/v1/foods/${food.fdcid}`;
-//             axios.get(foodURL).then(apiResponse => {
-//             let food = apiResponse.data;
-//             res.render('food/show', {food});
-//         })
-//     })
-// })
 
 // /lunch DELETE take an ingredient out of the "menu"
 router.delete('/foods/:fdcId', (req, res) => {
@@ -110,12 +77,5 @@ router.delete('/foods/:fdcId', (req, res) => {
        res.redirect('/food/foods')
    }) 
 });
-// /profile GET render username and saved lunches (name and ingredients)
-// router.get('/profile', (req, res) => {
-//     db.lunch.findAll()
-//     .then((lunch) => {
-//     res.render('profile');
-//     })
-// });
 
 module.exports = router;

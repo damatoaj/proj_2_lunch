@@ -1,11 +1,13 @@
-<article>
-    <h1>Which meal do you want to add ingredients to?</h1>
-    <form>
-        <select>
-            <% lunch.forEach(lunch => { %>
-            <option value="<%= lunch.id %>"><%= lunch.name %></option>
-            <% }); %>
-        </select>
-        <input type="submit">
-    </form>
-</article>
+<main>
+    <article>
+        <h1>Which meal do you want to add ingredients to?</h1>
+        <form>
+            <select>
+                <% lunch.forEach(lunch => { %>
+                <option value="<%= lunch.id %>"><%= lunch.name %></option>
+                <% }); %>
+            </select>
+            <input type="submit">
+        </form>
+    </article>
+</main>

@@ -1,8 +1,15 @@
-<h1>What's in your recipe?</h1>
-<h2><%=  lunch.name %></h2>
-
-
-<% lunch.dataValues.food.forEach(lunch => { %>
-    <%= lunch.description%>
-<% }); %>
+<main>
+    <h2>What's in your recipe?
+        </br>
+        </br>
+        <%= lunch.name %>
+    </h2>
+    <ul class="ejsUl">
+        <% lunch.dataValues.food.forEach(lunch => { %>
+        <li class="ejsLI">
+            <%= lunch.description%>
+        </li>
+        <% }); %>
+    </ul>
+</main>
 
