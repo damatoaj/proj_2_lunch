@@ -206,6 +206,8 @@ main {
   justify-content: center;
   text-decoration: underline;
   justify-self: center;
+  height: 500px;
+  width: 90%;
 }
 
 .ejsLi {
@@ -221,7 +223,9 @@ main {
   flex-wrap: wrap;
   padding: 10px;
   margin: 20px, 20px, 20px, 10px;
-  height: 500px;
+  background-color: cornsilk;
+  background-blend-mode: lighten;
+  height: 50px;
 }
 #ingBtn {
   border: 2px solid black;
