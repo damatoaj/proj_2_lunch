@@ -2,20 +2,7 @@
   box-sizing: border-box;
   font-family: 'Times New Roman', Times, serif;
 }
-body {
-  background-image:url('../Images/food_bowl_1.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
 
-
-#home {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 800px;
-}
 a {
   text-decoration: none;
   color:#1e2420;
@@ -23,56 +10,11 @@ a {
   border-radius: 5px; 
 }
 
-.imageLink {
-  padding: 0;
-  margin:0;
-  height:50px;
-}
-nav ul li {
-  text-decoration: none;
-  display: inline-block;
-  margin-right: .3em;
-  margin-bottom: 10px;
-}
-
-h1 {
-  color: chartreuse;
-  text-align: center;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px black;
-}
-
-h2 {
-  text-align: center;
-  display: block;
-  width: 100%;
-  letter-spacing: 3px;
-  text-shadow: 1px 0px black, 0 1px black, -1px 0 black, 0 -1px black;
-  color:#e9ebf0;
-  font-size: 30px;
-}
-
-h3 {
-  background-color: cornsilk;
-  background-blend-mode: lighten;
-  border-radius: 5px;
-  border: 2px solid black;
-  margin-bottom: 0;
-  text-align: center;
-}
-form {
-  border: 2px solid black;
-  padding: 10px;
-  margin: 0px 10px, 10px, 10px;
-  background-color: cornsilk;
-  background-blend-mode: lighten;
-  
-}
 .alert-container {
   width: 50vw;
   margin: 0 auto;
   border-radius: 10%;
-  box-shadow:5px 10px slategrey;
+  box-shadow:1rem 2rem slategrey;
 }
 
 .alert {
@@ -83,90 +25,12 @@ form {
   color: white;
 }
 
-.error {
-  border: 3px solid crimson;
-  background-color: salmon;
-}
-
-.success {
-  border: 3px solid forestgreen;
-  background-color: darkgreen;
-}
-
-img {
-  height: 100px;
-  width: 100px;
-  border-style: solid;
-  border-width: 5px; 
-  border-color: black;
-  border-radius: 25px;
-  background-color: whitesmoke;
-  margin: 0;
-  padding: 0;
-}
-
-footer {
-  border: 2px double black;
-  background-image:radial-gradient(cornflowerblue, #1e2420);  color: whitesmoke;
-  height: 150px;
-  margin-top: 20px;
-  padding: 0;
-  bottom: 0;
-  position: relative;
-  width: 100%;
-  height: 150px;
-}
-
-header {
-  text-align: center;
-  border: 2px double black;
-  background-image:radial-gradient(cornflowerblue, #1e2420);
-  color: whitesmoke;
-  padding: 0;
-  margin: 0;
-  height: 150px;
-  width: 100%;
-}
-
-nav {
-  padding: 0px;
-  margin: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-main {
-  border-style: 2px solid black;
-  height:800px;
-}
-
-.foods {
-  border-style: 2px solid black;
-}
-
-.column {
-  float: left;
-  padding: 10px;
-  height: 200px;
-  margin-top:10px;
-}
-
-.left {
-  margin-top: 10px;
-  width: 25%;
-  text-align: left;
-  border:solid 2px cornsilk;
-  border-radius: 30px 100px 100px 30px;
-  height: 130px;
-
-}
-
-.right {
-  width: 75%;
-  text-align: right;
-  border:solid 2px cornsilk;
-  border-radius: 100px 60px 60px 100px;
-  height: 130px;
+article {
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: right;
+  padding-left: 5rem;
 }
 
 #bannerId {
@@ -187,6 +51,255 @@ main {
   letter-spacing: 3px;
 }
 
+body {
+  background-image:url('../Images/food_bowl_1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+  height: 200px;
+  margin-top:10px;
+}
+
+#deleteButton {
+  border: none;
+  width: 50%;
+  height:auto;
+}
+
+.ejsUl {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-decoration: underline;
+  justify-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+.ejsLi {
+  list-style:none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 3rem;
+  margin: 3rem;
+  height: auto;
+  width: 100%;
+}
+
+.ejsLI {
+
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin: 2rem;
+  list-style: none;
+}
+
+.error {
+  border: 3px solid crimson;
+  background-color: salmon;
+}
+
+fieldset {
+  margin: 3rem;
+  padding: 1rem;
+}
+.foods {
+  border-style: 2px solid black;
+}
+
+#food {
+  max-height: 70%;
+  overflow-y: scroll;
+}
+
+footer {
+  border: 2px double black;
+  background-image:radial-gradient(cornflowerblue, #1e2420);  color: whitesmoke;
+  margin-top: 0;
+  padding: 0;
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  height: 25vh;
+}
+
+form {
+  border: .1rem solid black;
+  padding: 1rem;
+  background-color: cornsilk;
+  background-blend-mode: lighten; 
+  width: 100%;
+  height:20vh;
+}
+
+h1 {
+  color: chartreuse;
+  text-align: center;
+  letter-spacing: .5rem;
+  text-shadow: 2px 2px black;
+}
+
+h2 {
+  text-align: center;
+  width: 100%;
+  letter-spacing: .2rem;
+  text-shadow: 1px 0px black, 0 1px black, -1px 0 black, 0 -1px black;
+  color:white;
+  font-size: 2rem;
+  padding: .2rem;
+}
+
+h3 {
+  background-color: cornsilk;
+  background-blend-mode: lighten;
+  border-bottom: 2px solid black;
+  margin-bottom: 0;
+  text-align: center;
+  padding: .3rem;
+}
+
+header {
+  text-align: center;
+  border: 2px double black;
+  background-image:radial-gradient(cornflowerblue, #1e2420);
+  color: whitesmoke;
+  padding: 0;
+  margin: 0;
+  height: 25vh;
+  width: 100vw;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-content: center;
+  padding: 2rem;
+}
+
+.imageLink {
+  padding: 0;
+  margin:0;
+  height:50px;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  border-width: 5px; 
+  border-color: black;
+  border-radius: 25px;
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
+
+#ingBtn {
+  margin: 1rem;
+  background-color: cornsilk;
+  background-blend-mode: lighten;
+}
+
+#ingredientList {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: .5rem;
+  margin: 1rem;
+  background-color: cornsilk;
+  background-blend-mode: lighten;
+  text-overflow: clip;
+  border: .1rem solid black;
+  box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
+}
+
+.left {
+  margin-top: 10px;
+  width: 25%;
+  text-align: left;
+  border:solid 2px cornsilk;
+  border-radius: 30px 100px 100px 30px;
+  height: 20vh;
+}
+
+legend {
+  color: black;
+  background-color: cornsilk;
+  font-size: x-large;
+  padding: .5rem;
+  box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
+  border: 2px solid black;
+}
+
+main {
+  height:80vh;
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  padding: .5rem;
+}
+
+#menuAdd {
+  height: auto;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+#menuDelete{
+  height: auto;
+  width:100%;
+  margin: .5rem;
+  padding: .5rem;
+  border: none;
+}
+
+#menuList {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: .5rem;
+    margin: 1rem;
+    background-color: cornsilk;
+    background-blend-mode: lighten;
+    text-overflow: clip;
+    border: .1rem solid black;
+    box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
+}
+
+nav {
+  padding: 0px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+nav ul li {
+  text-decoration: none;
+  display: inline-block;
+  margin: .2rem;
+}
+
 #navList {
   padding: 0px;
   margin: 0px, 0px, 0px, 0px;
@@ -201,58 +314,59 @@ main {
   border-radius: 2px;
 }
 
-.ejsUl {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-decoration: underline;
-  justify-self: center;
-  height: 500px;
-  width: 90%;
-}
-
-.ejsLi {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  margin: 20px;
-  height: 500px;
-}
-
-.ejsLI {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  margin: 20px, 20px, 20px, 10px;
-  background-color: cornsilk;
-  background-blend-mode: lighten;
-  height: 50px;
-}
-#ingBtn {
-  border: 2px solid black;
-  padding: 10px;
-  margin: 10px, 10px, 10px, 10px;
-  background-color: cornsilk;
-  background-blend-mode: lighten;
+#nutrientForm {
+  border-style: none;
+  padding: 0;
+  margin: .1rem;
+  height: auto;
+  width: 100%;
 }
 
 .nutrientLi {
-  padding: 0px;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: .5rem;
+  margin: 1rem;
   background-color: cornsilk;
   background-blend-mode: lighten;
+  text-overflow: clip;
+  border: .1rem solid black;
+  box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
+}
+
+p {
+  text-align: center;
+}
+
+#recipeList {
+  height:auto;
+  background-color: cornsilk;
+  border-radius: 1rem;
+  border: .1rem solid black;
+  box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
 }
 
 #results {
   max-height: 75%;
   overflow-y: scroll;
+  padding: 0;
 }
 
-#food {
-  max-height: 70%;
-  overflow-y: scroll;
+.right {
+  width: 75%;
+  text-align: right;
+  border:solid 2px cornsilk;
+  border-radius: 100px 60px 60px 100px;
+  height: 20vh;
 }
 
-article {
-  text-align: center;
+select {
+  padding: .2rem;
+  margin-top: .5rem;
+}
+.success {
+  border: 3px solid forestgreen;
+  background-color: darkgreen;
 }

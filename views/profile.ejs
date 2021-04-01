@@ -2,10 +2,12 @@
   <h2>Check Out All Of Your Recipes  <%= currentUser.name %>!</h2>
   <ul class="ejsLi">
       <% lunch.forEach(lunch => { %>     
-      <li>
+      <li id="recipeList">
         <h3 style="margin-bottom:10px;"><%= lunch.name%></h3>
-          <a href="/profile/<%= lunch.id %>" id="ingBtn"><button>Check Ingredients</button></a>
-        <form method="POST" action="/profile/<%= lunch.id %>?_method=DELETE">
+          <a href="/profile/<%= lunch.id %>" id="ingBtn">
+            <button>Check Ingredients</button>
+          </a>
+        <form method="POST" action="/profile/<%= lunch.id %>?_method=DELETE" id="deleteButton">
           <button type="submit"  value="DELETE">Delete Lunch</button>
         </form>
       </li>

@@ -1,37 +1,45 @@
-<h2>Look At All These Foods! Add The Ones You Like To The Menu</h2>
-<div id="results">
-    <ul class="ejsLI">
-        <% food.foods.forEach(food => { %>
-        <li class="nutrientLi">
-            <form>
-                <h3 style="margin:0;padding:0;"><%= food.description %></h3>
-                <option>
+<main>
+    <h2>Look At All These Foods! Add The Ones You Like To The Menu</h2>
+    <div id="results">
+        <ul class="ejsLI">
+            <% food.foods.forEach(food => { %>
+            <li class="nutrientLi">
+                <div>
+                    <h3 style="margin:0;padding:0;"><%= food.description %></h3>
+                    <p>
+                        For every 100g, there are:
+                    </p>
                     <% food.foodNutrients.forEach(nutrient => { %>
-                        <% if (nutrient.nutrientName == 'Protein') { %>
-                            <%= nutrient.nutrientName %> 
-                            <%= nutrient.value %>
-                            <%= nutrient.unitName %>
-                        <% } %>
-                        <% if (nutrient.nutrientName == 'Carbohydrate, by difference') { %>
-                            Carbohydrate  
-                            <%= nutrient.value %>
-                            <%= nutrient.unitName %>
-                        <% } %>
-                        <% if (nutrient.nutrientName == `Total lipid (fat)`) { %>
-                            <%= nutrient.nutrientName %>  
-                            <%= nutrient.value %>
-                            <%= nutrient.unitName %>    
-                    <% } %>
-                </option>
-            </form>
+                        <p>
+                            <% if (nutrient.nutrientName == 'Protein') { %>
+                                <%= nutrient.nutrientName %> 
+                                <%= nutrient.value %>
+                                <%= nutrient.unitName %>
+                            <% } %>
+                        </p>
+                        <p>
+                            <% if (nutrient.nutrientName == 'Carbohydrate, by difference') { %>
+                                Carbohydrate  
+                                <%= nutrient.value %>
+                                <%= nutrient.unitName %>
+                            <% } %>
+                        </p>
+                        <p>
+                            <% if (nutrient.nutrientName == `Total lipid (fat)`) { %>
+                                <%= nutrient.nutrientName %>  
+                                <%= nutrient.value %>
+                                <%= nutrient.unitName %>    
+                            <% } %>
+                        </p>
+                    <% }) %>
+                </div>
+                <form method="POST" action="/food/lunch" id="nutrientForm">
+                    <input type="hidden" name="description" value="<%= food.description%>">
+                    <input type="hidden" name="fdcId" value="<%= food.fdcId%>">
+                    <button type="submit">Add to Lunch</button>
+                </form>
                 <% }) %>
-            <form method="POST" action="/food/lunch">
-                <input type="hidden" name="description" value="<%= food.description%>">
-                <input type="hidden" name="fdcId" value="<%= food.fdcId%>">
-                <button type="submit">Add to Lunch</button>
-            </form>
-            <% }) %>
-        </li>
-    </ul>
-</div>
-    
+            </li>
+        </ul>
+    </div>
+</main>

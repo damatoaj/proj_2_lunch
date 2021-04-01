@@ -1,10 +1,11 @@
-<h2>Use These Ingredients In Your Recipe</h2>
+<main>
+    <h2>Use These Ingredients In Your Recipe</h2>
 <div id="food">
     <ul class="ejsLi">
         <% food.forEach(food => { %>
-            <li>
+            <li id="menuList">
                 <h3><%= food.dataValues.description %></h3>
-                <form method="POST" action="/food/foods/">
+                <form method="POST" action="/food/foods/" id="menuAdd">
                     <select name="lunchId">
                         <% lunches.forEach(lunch => { %>
                         <option value="<%= lunch.id %>"><%= lunch.name %></option>
@@ -13,13 +14,13 @@
                     <input hidden type="text" name="foodId" value="<%= food.id %>">
                     <button type="submit">Add to Recipe</button>
                 </form>
-                <form method="POST" action="/food/foods/<%= food.fdcid%>/?_method=DELETE">
+                <form method="POST" action="/food/foods/<%= food.fdcid%>/?_method=DELETE" id="menuDelete">
                     <button type="submit" value="DELETE">Delete From Menu</button>
                 </form>
             </li>
         <% }) %>
     </ul>
 </div>
-
+</main>
     
     
