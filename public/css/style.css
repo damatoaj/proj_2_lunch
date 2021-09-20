@@ -12,25 +12,29 @@
   --fourth-clr: whitesmoke;
   --fifth-clr: cornsilk;
 
+  --pad-mar-reg: 1rem;
+  --pad-mar-lg: calc(--pad-mar-reg) * 1.5;
+  --pad-mar-xl: calc(--pad-mar-reg) * 2;
+  --pad-mar-sm: calc(--pad-mar-reg) * .75;
+  --pad-mar-xs: calc(--pad-mar-reg) * .5;
 }
 
 a {
   text-decoration: none;
   color: var(--primary-clr);
-  padding: 5px;
-  border-radius: 5px; 
+  padding: var(--pad-mar-reg);
+  border-radius: var(--pad-mar-reg); 
 }
 
 .alert-container {
   width: 50vw;
-  margin: 0 auto;
   border-radius: 10%;
   box-shadow:1rem 2rem var(--secondary-clr);
 }
 
 .alert {
-  margin: .25em;
-  padding: .25em;
+  margin: var(--pad-mar-sm);
+  padding: var(--pad-mar-sm);
   background-color: var(--primary-clr);
   opacity: .5;
   color: var(--fourth-clr);
@@ -41,14 +45,14 @@ article {
   flex-direction: column;
   align-content: center;
   justify-content: right;
-  padding-left: 5rem;
+  padding-left: var(--pad-mar-lg);
 }
 
 #bannerId {
-  left: 0px;
+  width:60%;
   letter-spacing: 2px;
-  padding: 0px 100px 0px 0px;
-  margin: 10px;
+  padding-bottom: var(--pad-mar-xl);
+  margin: var(--pad-mar-reg);
   border-right: dotted 5px var(--primary-clr);
   text-decoration-line: underline;
   text-align: center;
@@ -56,8 +60,6 @@ article {
 }
 
 #bannerTitle {
-  margin: 0;
-  padding: 0;
   height: 25px;
   letter-spacing: 3px;
 }
@@ -73,13 +75,22 @@ body {
   width: 100%;
 }
 
+input {
+  padding: var(--pad-mar-rg);
 
+}
+
+input:hover {
+  background-color: var(--primary-clr);
+  color: var(--fourth-clr);
+  padding: var(--pad-mar-xl)
+}
 
 .column {
   float: left;
-  padding: 10px;
+  padding: var(--pad-mar-reg);
   height: 200px;
-  margin-top:10px;
+  margin-top:var(--pad-mar-reg);
 }
 
 #deleteButton {
@@ -228,7 +239,7 @@ img {
   background-color: var(--fifth-clr);
   background-blend-mode: lighten;
   text-overflow: clip;
-  border: .1rem solid black;
+  border: .1rem solid var(--primary-clr);
   box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr), -.3rem -.3rem .3rem .3rem var(--fourth-clr);
 }
 
@@ -289,7 +300,7 @@ main {
 }
 
 nav {
-  margin: 10px;
+  margin: var(--pad-mar-reg);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -302,14 +313,19 @@ nav ul li {
 }
 
 #navList {
-  margin: 0px, 0px, 0px, 0px;
-  width: 700px;
+  width: 100%;
 }
 
-.navLi {
+.navLi > a {
   box-shadow: 7px 10px 5px var(--secondary-clr);
   background-color:var(--fourth-clr);
-  border-radius: 2px;
+  border-radius: .3rem;
+  transition:2s;
+}
+
+ .navLi > a:hover {
+  background-color: var(--primary-clr);
+  color: var(--fourth-clr);
 }
 
 #nutrientForm {
