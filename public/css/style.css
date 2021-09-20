@@ -1,11 +1,22 @@
 * {
   box-sizing: border-box;
   font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-clr: #1e2420;
+  --secondary-clr: slategrey;
+  --tertiary-clr: cornflowerblue;
+  --fourth-clr: whitesmoke;
+  --fifth-clr: cornsilk;
+
 }
 
 a {
   text-decoration: none;
-  color:#1e2420;
+  color: var(--primary-clr);
   padding: 5px;
   border-radius: 5px; 
 }
@@ -14,15 +25,15 @@ a {
   width: 50vw;
   margin: 0 auto;
   border-radius: 10%;
-  box-shadow:1rem 2rem slategrey;
+  box-shadow:1rem 2rem var(--secondary-clr);
 }
 
 .alert {
   margin: .25em;
   padding: .25em;
-  background-color: black;
+  background-color: var(--primary-clr);
   opacity: .5;
-  color: white;
+  color: var(--fourth-clr);
 }
 
 article {
@@ -38,14 +49,14 @@ article {
   letter-spacing: 2px;
   padding: 0px 100px 0px 0px;
   margin: 10px;
-  border-right: dotted 5px black;
+  border-right: dotted 5px var(--primary-clr);
   text-decoration-line: underline;
   text-align: center;
-  text-shadow: 1px 0 black, -1px 0 black, 0 1px black, 0 -1px black;
+  text-shadow: 1px 0 var(--primary-clr), -1px 0 var(--primary-clr), 0 1px var(--primary-clr), 0 -1px var(--primary-clr);
 }
 
 #bannerTitle {
-  margin: 0 ;
+  margin: 0;
   padding: 0;
   height: 25px;
   letter-spacing: 3px;
@@ -58,10 +69,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 0;
   height: 100%;
   width: 100%;
 }
+
+
 
 .column {
   float: left;
@@ -118,7 +130,7 @@ fieldset {
   padding: 1rem;
 }
 .foods {
-  border-style: 2px solid black;
+  border-style: 2px solid var(--primary-clr);
 }
 
 #food {
@@ -127,20 +139,17 @@ fieldset {
 }
 
 footer {
-  border: 2px double black;
-  background-image:radial-gradient(cornflowerblue, #1e2420);  color: whitesmoke;
-  margin-top: 0;
-  padding: 0;
-  bottom: 0;
+  border: 2px double var(--primary-clr);
+  background-image:radial-gradient(var(--tertiary-clr), var(--primary-clr));  color: var(--fourth-clr);
   position: relative;
   width: 100%;
   height: 25vh;
 }
 
 form {
-  border: .1rem solid black;
+  border: .1rem solid var(--primary-clr);
   padding: 1rem;
-  background-color: cornsilk;
+  background-color: var(--fifth-clr);
   background-blend-mode: lighten; 
   width: 100%;
   height:20vh;
@@ -150,35 +159,32 @@ h1 {
   color: chartreuse;
   text-align: center;
   letter-spacing: .5rem;
-  text-shadow: 2px 2px black;
+  text-shadow: 2px 2px var(--primary-clr);
 }
 
 h2 {
   text-align: center;
   width: 100%;
   letter-spacing: .2rem;
-  text-shadow: 1px 0px black, 0 1px black, -1px 0 black, 0 -1px black;
-  color:white;
+  text-shadow: 1px 0px var(--primary-clr), 0 1px var(--primary-clr), -1px 0 var(--primary-clr), 0 -1px var(--primary-clr);
+  color:var(--fourth-clr);
   font-size: 2rem;
   padding: .2rem;
 }
 
 h3 {
-  background-color: cornsilk;
+  background-color: var(--fourth-clr);
   background-blend-mode: lighten;
-  border-bottom: 2px solid black;
-  margin-bottom: 0;
+  border-bottom: 2px solid var(--primary-clr);
   text-align: center;
   padding: .3rem;
 }
 
 header {
   text-align: center;
-  border: 2px double black;
-  background-image:radial-gradient(cornflowerblue, #1e2420);
-  color: whitesmoke;
-  padding: 0;
-  margin: 0;
+  border: 2px double var(--primary-clr);
+  background-image:radial-gradient(var(--tertiary-clr), var(--primary-clr));
+  color: var(--fourth-clr);
   height: 25vh;
   width: 100vw;
 }
@@ -193,8 +199,6 @@ header {
 }
 
 .imageLink {
-  padding: 0;
-  margin:0;
   height:50px;
 }
 
@@ -203,16 +207,14 @@ img {
   width: 100px;
   border-style: solid;
   border-width: 5px; 
-  border-color: black;
+  border-color: var(--primary-clr);
   border-radius: 25px;
-  background-color: whitesmoke;
-  margin: 0;
-  padding: 0;
+  background-color: var(--fourth-clr);
 }
 
 #ingBtn {
   margin: 1rem;
-  background-color: cornsilk;
+  background-color: var(--fifth-clr);
   background-blend-mode: lighten;
 }
 
@@ -223,29 +225,29 @@ img {
   justify-content: space-around;
   padding: .5rem;
   margin: 1rem;
-  background-color: cornsilk;
+  background-color: var(--fifth-clr);
   background-blend-mode: lighten;
   text-overflow: clip;
   border: .1rem solid black;
-  box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
+  box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr), -.3rem -.3rem .3rem .3rem var(--fourth-clr);
 }
 
 .left {
   margin-top: 10px;
   width: 25%;
   text-align: left;
-  border:solid 2px cornsilk;
+  border:solid 2px var(--fifth-clr);
   border-radius: 30px 100px 100px 30px;
   height: 20vh;
 }
 
 legend {
-  color: black;
-  background-color: cornsilk;
+  color: var(--primary-clr);
+  background-color: var(--fifth-clr);
   font-size: x-large;
   padding: .5rem;
-  box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
-  border: 2px solid black;
+  box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr);
+  border: 2px solid var(--primary-clr);
 }
 
 main {
@@ -261,8 +263,6 @@ main {
 #menuAdd {
   height: auto;
   width:100%;
-  margin: 0;
-  padding: 0;
   border: none;
 }
 
@@ -281,15 +281,14 @@ main {
     justify-content: space-around;
     padding: .5rem;
     margin: 1rem;
-    background-color: cornsilk;
+    background-color: var(--fourth-clr);
     background-blend-mode: lighten;
     text-overflow: clip;
-    border: .1rem solid black;
-    box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
+    border: .1rem solid var(--primary-clr);
+    box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr), -.3rem -.3rem .3rem .3rem var(--fourth-clr);
 }
 
 nav {
-  padding: 0px;
   margin: 10px;
   display: flex;
   flex-direction: row;
@@ -303,22 +302,18 @@ nav ul li {
 }
 
 #navList {
-  padding: 0px;
   margin: 0px, 0px, 0px, 0px;
   width: 700px;
 }
 
 .navLi {
-  padding-left: 0px;
-  padding-right: 0;
-  box-shadow: 7px 10px 5px slategrey;
-  background-color:whitesmoke;
+  box-shadow: 7px 10px 5px var(--secondary-clr);
+  background-color:var(--fourth-clr);
   border-radius: 2px;
 }
 
 #nutrientForm {
   border-style: none;
-  padding: 0;
   margin: .1rem;
   height: auto;
   width: 100%;
@@ -331,11 +326,11 @@ nav ul li {
   justify-content: space-around;
   padding: .5rem;
   margin: 1rem;
-  background-color: cornsilk;
+  background-color: var(--fifth-clr);
   background-blend-mode: lighten;
   text-overflow: clip;
-  border: .1rem solid black;
-  box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
+  border: .1rem solid var(--primary-clr);
+  box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr), -.3rem -.3rem .3rem .3rem var(--fourth-clr);
 }
 
 p {
@@ -344,22 +339,21 @@ p {
 
 #recipeList {
   height:auto;
-  background-color: cornsilk;
+  background-color: var(--fifth-clr);
   border-radius: 1rem;
-  border: .1rem solid black;
-  box-shadow: .3rem .3rem .3rem .3rem whitesmoke, .3rem -.3rem .3rem .3rem whitesmoke, -.3rem .3rem .3rem .3rem whitesmoke, -.3rem -.3rem .3rem .3rem whitesmoke;
+  border: .1rem solid var(--primary-clr);
+  box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr), -.3rem -.3rem .3rem .3rem var(--fourth-clr);
 }
 
 #results {
   max-height: 75%;
   overflow-y: scroll;
-  padding: 0;
 }
 
 .right {
   width: 75%;
   text-align: right;
-  border:solid 2px cornsilk;
+  border:solid 2px var(--fifth-clr);
   border-radius: 100px 60px 60px 100px;
   height: 20vh;
 }
