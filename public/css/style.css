@@ -26,6 +26,19 @@ a {
   border-radius: var(--pad-mar-reg); 
 }
 
+span {
+  opacity: 0;
+  transition: all .1s ease;
+  transform: translateY(50px);
+  display: inline-block;
+}
+
+span.fade {
+  opacity: 1;
+  transform: translateY(0px);
+  color: var(--fourth-clr);
+}
+
 .alert-container {
   width: 50vw;
   border-radius: 10%;
@@ -375,7 +388,7 @@ p {
 }
 
 select {
-  padding: .2rem;
+  padding: var(--pad-mar-xs);
   margin-top: .5rem;
 }
 .success {
