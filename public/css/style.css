@@ -13,27 +13,26 @@
   --fifth-clr: cornsilk;
 
   --pad-mar-reg: 1rem;
-  --pad-mar-lg: calc(--pad-mar-reg) * 1.5;
-  --pad-mar-xl: calc(--pad-mar-reg) * 2;
-  --pad-mar-sm: calc(--pad-mar-reg) * .75;
-  --pad-mar-xs: calc(--pad-mar-reg) * .5;
+  --pad-mar-lg: calc(var(--pad-mar-reg)* 1.5);
+  --pad-mar-xl: calc(var(--pad-mar-reg) * 2);
+  --pad-mar-sm: calc(var(--pad-mar-reg) * .75);
+  --pad-mar-xs: calc(var(--pad-mar-reg) * .5);
+
+  --font-sz-rg: 2rem;
+  --font-sz-lg: calc(var(--font-sz-rg) * 2);
+  --font-sz-xl: calc(var(--font-sz-rg) * 3);
+  --font-sz-sm: calc(var(--font-sz-rg) * .75);
+  --font-sz-xs: calc(var(--font-sz-rg) * .5);
 }
 
-a {
-  text-decoration: none;
-  color: var(--primary-clr);
-  padding: var(--pad-mar-reg);
-  border-radius: var(--pad-mar-reg); 
-}
-
-span {
+.animation {
   opacity: 0;
   transition: all .1s ease;
   transform: translateY(50px);
   display: inline-block;
 }
 
-span.fade {
+.animation.fade {
   opacity: 1;
   transform: translateY(0px);
   color: var(--fourth-clr);
@@ -64,8 +63,8 @@ article {
 #bannerId {
   width:60%;
   letter-spacing: 2px;
-  padding-bottom: var(--pad-mar-xl);
-  margin: var(--pad-mar-reg);
+  /* padding-bottom: var(--pad-mar-xl); */
+  /* margin: var(--pad-mar-reg); */
   border-right: dotted 5px var(--primary-clr);
   text-decoration-line: underline;
   text-align: center;
@@ -73,8 +72,8 @@ article {
 }
 
 #bannerTitle {
-  height: 25px;
-  letter-spacing: 3px;
+  height: 50%;
+  place-items: center;
 }
 
 body {
@@ -129,18 +128,17 @@ input:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 3rem;
-  margin: 3rem;
+  padding: var(--pad-mar-xl);
+  margin: var(--pad-mar-xl);
   height: auto;
   width: 100%;
 }
 
 .ejsLI {
-
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
-  margin: 2rem;
+  padding: var(--pad-mar-reg);
+  margin: var(--pad-mar-xl);
   list-style: none;
 }
 
@@ -150,8 +148,8 @@ input:hover {
 }
 
 fieldset {
-  margin: 3rem;
-  padding: 1rem;
+  margin: var(--pad-mar-xl);
+  padding: var(--pad-mar-reg);
 }
 .foods {
   border-style: 2px solid var(--primary-clr);
@@ -163,16 +161,22 @@ fieldset {
 }
 
 footer {
-  border: 2px double var(--primary-clr);
   background-image:radial-gradient(var(--tertiary-clr), var(--primary-clr));  color: var(--fourth-clr);
   position: relative;
   width: 100%;
   height: 25vh;
 }
 
+footer > a {
+  text-decoration: none;
+  color: var(--primary-clr);
+  padding: var(--pad-mar-reg);
+  border-radius: var(--pad-mar-reg); 
+}
+
 form {
   border: .1rem solid var(--primary-clr);
-  padding: 1rem;
+  padding: var(--pad-mar-reg);
   background-color: var(--fifth-clr);
   background-blend-mode: lighten; 
   width: 100%;
@@ -182,8 +186,10 @@ form {
 h1 {
   color: chartreuse;
   text-align: center;
-  letter-spacing: .5rem;
+  letter-spacing: var(--font-sz-xs);
   text-shadow: 2px 2px var(--primary-clr);
+  font-size: var(--font-sz-xl);
+  padding: var(--pad-mar-reg);
 }
 
 h2 {
@@ -192,7 +198,7 @@ h2 {
   letter-spacing: .2rem;
   text-shadow: 1px 0px var(--primary-clr), 0 1px var(--primary-clr), -1px 0 var(--primary-clr), 0 -1px var(--primary-clr);
   color:var(--fourth-clr);
-  font-size: 2rem;
+  font-size: var(--font-sz-lg);
   padding: .2rem;
 }
 
@@ -201,7 +207,7 @@ h3 {
   background-blend-mode: lighten;
   border-bottom: 2px solid var(--primary-clr);
   text-align: center;
-  padding: .3rem;
+  padding: var(--pad-mar-xs);
 }
 
 header {
@@ -219,16 +225,17 @@ header {
   justify-content: center;
   width: 100%;
   align-content: center;
-  padding: 2rem;
+  padding: var(--pad-mar-xl);
 }
 
 .imageLink {
-  height:50px;
+  height:18vh;
+  padding: 0;
 }
 
 img {
-  height: 100px;
-  width: 100px;
+  height: 18vh;
+  width: 18vh;
   border-style: solid;
   border-width: 5px; 
   border-color: var(--primary-clr);
@@ -237,7 +244,7 @@ img {
 }
 
 #ingBtn {
-  margin: 1rem;
+  margin: var(--pad-mar-rg);
   background-color: var(--fifth-clr);
   background-blend-mode: lighten;
 }
@@ -247,8 +254,8 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: .5rem;
-  margin: 1rem;
+  padding: var(--pad-mar-xs);
+  margin: var(--pad-mar-rg);
   background-color: var(--fifth-clr);
   background-blend-mode: lighten;
   text-overflow: clip;
@@ -257,11 +264,11 @@ img {
 }
 
 .left {
-  margin-top: 10px;
+  text-overflow: ellipsis;
   width: 25%;
   text-align: left;
   border:solid 2px var(--fifth-clr);
-  border-radius: 30px 100px 100px 30px;
+  border-radius: 10% 45% 45% 10%;
   height: 20vh;
 }
 
@@ -269,7 +276,7 @@ legend {
   color: var(--primary-clr);
   background-color: var(--fifth-clr);
   font-size: x-large;
-  padding: .5rem;
+  padding: var(--pad-mar-rg);
   box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr);
   border: 2px solid var(--primary-clr);
 }
@@ -281,7 +288,7 @@ main {
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-between;
-  padding: .5rem;
+  padding: var(--pad-mar-rg);
 }
 
 #menuAdd {
@@ -293,8 +300,8 @@ main {
 #menuDelete{
   height: auto;
   width:100%;
-  margin: .5rem;
-  padding: .5rem;
+  margin: var(--pad-mar-rg);
+  padding: var(--pad-mar-rg);
   border: none;
 }
 
@@ -303,8 +310,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: .5rem;
-    margin: 1rem;
+    padding: var(--pad-mar-xs);
+    margin: var(--pad-mar-rg);
     background-color: var(--fourth-clr);
     background-blend-mode: lighten;
     text-overflow: clip;
@@ -322,11 +329,14 @@ nav {
 nav ul li {
   text-decoration: none;
   display: inline-block;
-  margin: .2rem;
+  margin: calc(var(--pad-mar-rg) * .2);
 }
 
 #navList {
+  display: flex;
+  justify-content: space-evenly;
   width: 100%;
+  place-items: center;
 }
 
 .navLi > a {
@@ -334,6 +344,10 @@ nav ul li {
   background-color:var(--fourth-clr);
   border-radius: .3rem;
   transition:2s;
+  text-decoration: none;
+  color: var(--primary-clr);
+  padding: var(--pad-mar-reg);
+  border-radius: var(--pad-mar-reg); 
 }
 
  .navLi > a:hover {
@@ -343,7 +357,7 @@ nav ul li {
 
 #nutrientForm {
   border-style: none;
-  margin: .1rem;
+  margin: calc(var(--pad-mar-rg) * .1);
   height: auto;
   width: 100%;
 }
@@ -353,8 +367,8 @@ nav ul li {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: .5rem;
-  margin: 1rem;
+  padding: var(--pad-mar-xs);
+  margin: var(--pad-mar-rg);
   background-color: var(--fifth-clr);
   background-blend-mode: lighten;
   text-overflow: clip;
@@ -369,7 +383,7 @@ p {
 #recipeList {
   height:auto;
   background-color: var(--fifth-clr);
-  border-radius: 1rem;
+  border-radius: var(--pad-mar-rg);
   border: .1rem solid var(--primary-clr);
   box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr), -.3rem -.3rem .3rem .3rem var(--fourth-clr);
 }
@@ -380,18 +394,124 @@ p {
 }
 
 .right {
+  padding-right: 0;
   width: 75%;
   text-align: right;
   border:solid 2px var(--fifth-clr);
-  border-radius: 100px 60px 60px 100px;
+  border-radius: 45% 10% 10% 45%;
   height: 20vh;
+  display: flex;
+  justify-content: right;
 }
 
 select {
   padding: var(--pad-mar-xs);
-  margin-top: .5rem;
+  margin-top: var(--pad-mar-xs);
 }
 .success {
   border: 3px solid forestgreen;
   background-color: darkgreen;
+}
+
+@media screen and (max-width: 1030px) {
+  :root {
+    --pad-mar-reg: .8rem;
+    --font-sz-rg: .8rem;
+  }
+  
+  h1 {
+    color: red
+  }
+  
+  img {
+    width: 14vw;
+    border-radius: 50%;
+    border-width: 4px; 
+  }
+
+  .imageLink {
+    width: 14vw;
+    margin-bottom: var(--pad-mar-xl);
+  }
+  
+  .left {
+    font-size: var(--font-sz-rg);
+  }
+
+ 
+
+
+@media screen and (max-width: 770px) {
+  :root {
+    --pad-mar-reg: .8rem;
+    --font-sz-rg: .8rem;
+  }
+  
+  h1 {
+    color: black;
+  }
+
+  img {
+    height: 10vh;
+    width: 14vw;
+    border-radius: 100%;
+    border-width: 3px; 
+  }
+
+  .imageLink {
+    width: 14vw;
+  }
+
+  .left {
+    font-size: var(--font-sz-rg);
+  }
+}
+
+  @media screen and (max-width: 400px) {
+    :root {
+      --pad-mar-reg: .5rem;
+      --font-sz-rg: .5rem;
+    }
+
+    body {
+      height: 80vh;
+    }
+  
+    h1{
+      color: blue;
+    }
+    
+    header {
+      height: 20vh;
+    }
+
+    footer {
+      margin-bottom: 0;
+      height: 10vh;
+    }
+
+    img {
+      height: 5vh;
+      width: 8vw;
+      border-radius: 50%;
+      border-width: 1px; 
+    }
+
+    .imageLink {
+      width: 8vw;
+      height:6vh;
+    }
+  
+    .left {
+      font-size: var(--font-sz-rg);
+      height: 9vh;
+      width: 40%;
+    }
+
+    .right {
+      justify-content: space-around;
+      height: 9vh;
+      width: 60%;
+    }
+  }
 }

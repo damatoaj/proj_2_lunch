@@ -13,12 +13,12 @@ function bannerIdAnimation(elem) {
     timer = setInterval(onTick, 100)
     bannerId.textContent = '';
     for (let char = 0; char < splitText.length; char++) {        
-        bannerId.innerHTML += "<span>" + splitText[char] + "</span>";
+        bannerId.innerHTML += "<span class='animation'>" + splitText[char] + "</span>";
     }
 }
 
 function onTick(){
-    const span = bannerId.querySelectorAll('span')[char];
+    const span = bannerId.querySelectorAll('.animation')[char];
     span.classList.add('fade');
     char++
     console.log(char)
