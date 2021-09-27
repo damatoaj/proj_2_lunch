@@ -33,7 +33,7 @@ router.post('/signup', (req,res) => {
       })(req, res);
     } else {
       //else user wasn't created, then there is a user at that email so they can't sign up
-        //redirect to /auth/signup
+      //redirect to /auth/signup
       console.log(`${user.name} has already been taken`);
       req.flash('error', `email already exists`)
       redirect('/auth/signup');

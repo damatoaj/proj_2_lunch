@@ -12,8 +12,12 @@ if(bannerId.textContent) {
 function bannerIdAnimation(elem) {
     timer = setInterval(onTick, 100)
     bannerId.textContent = '';
-    for (let char = 0; char < splitText.length; char++) {        
-        bannerId.innerHTML += "<span class='animation'>" + splitText[char] + "</span>";
+    for (let char = 0; char < splitText.length; char++) { 
+        if(splitText[char] === ' ') {
+            bannerId.innerHTML += "<span class='animation' style='margin:5px'></span>"
+        } else {
+            bannerId.innerHTML += "<span class='animation'>" + splitText[char] + "</span>";
+        }
     }
 }
 
