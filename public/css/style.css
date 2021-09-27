@@ -39,9 +39,19 @@
 }
 
 #alert-container {
-  width: 50vw;
+  width: 100%;
   border-radius: 10%;
   box-shadow:1rem 2rem var(--secondary-clr);
+}
+
+#alert-container#success{
+  border: 3px solid forestgreen;
+  background-color: darkgreen;
+}
+
+#alert-container#error{
+  border: 3px solid crimson;
+  background-color: salmon;
 }
 
 #alert {
@@ -58,6 +68,11 @@ article {
   align-content: center;
   justify-content: right;
   padding-left: var(--pad-mar-lg);
+}
+
+article > h2 {
+  text-decoration: underline;
+  padding-bottom: var(--pad-mar-reg);
 }
 
 #bannerId {
@@ -83,15 +98,25 @@ body {
   width: 100%;
 }
 
-input {
-  padding: var(--pad-mar-rg);
-
+button {
+  transition: 1s;
 }
 
-input:hover {
+input {
+  padding: var(--pad-mar-lg);
+  font-size: var(--font-sz-xs);
+  transition: 2s;
+}
+
+input:hover,
+input:focus,
+button:hover,
+button:focus {
   background-color: var(--primary-clr);
   color: var(--fourth-clr);
-  padding: var(--pad-mar-xl)
+  cursor:pointer;
+  outline: none;
+  border: 2px solid var(--fourth-clr);
 }
 
 .column {
@@ -137,15 +162,11 @@ input:hover {
   list-style: none;
 }
 
-.error {
-  border: 3px solid crimson;
-  background-color: salmon;
-}
-
 fieldset {
   margin: var(--pad-mar-xl);
   padding: var(--pad-mar-reg);
 }
+
 .foods {
   border-style: 2px solid var(--primary-clr);
 }
@@ -153,6 +174,7 @@ fieldset {
 #food {
   max-height: 70%;
   overflow-y: scroll;
+  width: 100%;
 }
 
 footer {
@@ -162,20 +184,12 @@ footer {
   height: 25vh;
 }
 
-footer > a {
-  text-decoration: none;
-  color: var(--primary-clr);
-  padding: var(--pad-mar-reg);
-  border-radius: var(--pad-mar-reg); 
-}
-
 form {
   border: .1rem solid var(--primary-clr);
   padding: var(--pad-mar-reg);
   background-color: var(--fifth-clr);
   background-blend-mode: lighten; 
   width: 100%;
-  height:20vh;
 }
 
 h1 {
@@ -222,7 +236,14 @@ header {
 
 .imageLink {
   height:18vh;
-  padding: 0;
+  transition: 2s;
+}
+
+.imageLink:hover,
+.imageLink:focus {
+  outline: var(--fourth-clr);
+  cursor: pointer;
+  box-shadow: 7px 10px 5px var(--secondary-clr);
 }
 
 img {
@@ -233,6 +254,12 @@ img {
   border-color: var(--primary-clr);
   border-radius: 25px;
   background-color: var(--fourth-clr);
+
+}
+
+img:hover,
+img:focus {
+  border: 2px solid var(--fourth-clr);
 }
 
 #ingBtn {
@@ -311,6 +338,21 @@ main {
     box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr), -.3rem -.3rem .3rem .3rem var(--fourth-clr);
 }
 
+#myEmail {
+  color: var(--fourth-clr);
+  transition: 1s;
+}
+
+#myEmail:hover,
+#myEmail:focus {
+  outline: none;
+  border: 2px solid var(--fourth-clr);
+  color: var(--primary-clr);
+  background-color: var(--fourth-clr);
+  border-radius: var(--pad-mar-xs);
+  box-shadow: 7px 10px 5px var(--secondary-clr);
+}
+
 nav {
   display: flex;
   flex-direction: row;
@@ -331,7 +373,6 @@ nav ul li {
 }
 
 .navLi > a {
-  box-shadow: 7px 10px 5px var(--secondary-clr);
   background-color:var(--fourth-clr);
   border-radius: .3rem;
   transition:2s;
@@ -340,11 +381,16 @@ nav ul li {
   padding: var(--pad-mar-reg);
   border-radius: var(--pad-mar-reg); 
   font-size: var(--font-sz-rg);
+  cursor:pointer;
 }
 
- .navLi > a:hover {
+ .navLi > a:hover,
+ .navLi > a:focus {
   background-color: var(--primary-clr);
   color: var(--fourth-clr);
+  border: 2px solid var(--fourth-clr);
+  outline: none;
+  box-shadow: 7px 10px 5px var(--secondary-clr);
 }
 
 #nutrientForm {
@@ -360,7 +406,7 @@ nav ul li {
   flex-direction: column;
   justify-content: space-around;
   padding: var(--pad-mar-xs);
-  margin: var(--pad-mar-rg);
+  margin: var(--pad-mar-xs);
   background-color: var(--fifth-clr);
   background-blend-mode: lighten;
   text-overflow: clip;
@@ -399,10 +445,6 @@ p {
 select {
   padding: var(--pad-mar-xs);
   margin-top: var(--pad-mar-xs);
-}
-.success {
-  border: 3px solid forestgreen;
-  background-color: darkgreen;
 }
 
 @media screen and (max-width: 1030px) {
@@ -466,6 +508,7 @@ select {
 
   .imageLink {
     width: 8vw;
+    height: 4vh;
   }
 
   .left {
@@ -511,7 +554,7 @@ select {
 
     .imageLink {
       width: 8vw;
-      height:6vh;
+      height: 6vh;
     }
   
     .left {
