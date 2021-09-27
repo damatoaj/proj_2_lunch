@@ -38,13 +38,13 @@
   color: var(--fourth-clr);
 }
 
-.alert-container {
+#alert-container {
   width: 50vw;
   border-radius: 10%;
   box-shadow:1rem 2rem var(--secondary-clr);
 }
 
-.alert {
+#alert {
   margin: var(--pad-mar-sm);
   padding: var(--pad-mar-sm);
   background-color: var(--primary-clr);
