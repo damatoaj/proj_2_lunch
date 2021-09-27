@@ -96,6 +96,9 @@ body {
   background-attachment: fixed;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 button {
@@ -179,7 +182,6 @@ fieldset {
 
 footer {
   background-image:radial-gradient(var(--tertiary-clr), var(--primary-clr));  color: var(--fourth-clr);
-  position: relative;
   width: 100%;
   height: 25vh;
 }
