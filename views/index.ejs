@@ -1,19 +1,19 @@
 <div id="home">
     <h2>Start By Naming Your Recipe, Then Look For Ingredients To Add</h2>
     <article>
-        <fieldset>
-            <legend>
-                Recipe Name
-            </legend>
-            <form id="lunchForm" action="/" method="POST">
-                <label for="lunch-name">What Do You Want To Call This Recipe?</label>
-                <input type="text" name="name">
-                <% if (user) { %>
-                <input type="hidden" name="userId" id="userId" value="<%= user.dataValues.id %>">
-                    <% } %>
-                <input type="submit">
-            </form>
-        </fieldset>
+        <% if (user) { %>
+            <fieldset>
+                <legend>
+                    Recipe Name
+                </legend>
+                <form id="lunchForm" action="/" method="POST">
+                    <label for="lunch-name">What Do You Want To Call This Recipe?</label>
+                    <input type="text" name="name">
+                    <input type="hidden" name="userId" id="userId" value="<%= user.dataValues.id %>">
+                    <input type="submit">
+                </form>
+            </fieldset>
+        <% } %>
         <fieldset>
             <legend>
                 Ingredient Search
