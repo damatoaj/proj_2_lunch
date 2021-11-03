@@ -1,6 +1,6 @@
 # I. This App is called "What'cha Makin'?" and can be found at 
-    - A. https://reddev14-lunch-recipes-2.herokuapp.com/ or 
-    - B. https://github.com/damatoaj/proj_2_lunch
+    - A. [Heroku](https://reddev14-lunch-recipes-2.herokuapp.com/) or 
+    - B. [Github](https://github.com/damatoaj/proj_2_lunch)
 
 # II. Purpose
     - A. The primary purpose of the app is to create recipes using the FDA's food API.
