@@ -1,12 +1,12 @@
 ## I. This App is called "What'cha Makin'?" and can be found at 
-    - A. [Heroku](https://reddev14-lunch-recipes-2.herokuapp.com/) or 
-    - B. [Github](https://github.com/damatoaj/proj_2_lunch/)
+     A. [Heroku](https://reddev14-lunch-recipes-2.herokuapp.com/) or 
+     B. [Github](https://github.com/damatoaj/proj_2_lunch/)
 
 ## II. Purpose
-    - A. The primary purpose of the app is to create recipes using the FDA's food API.
-    - B. Users create profiles, then favorite different foods and add those foods to dishes that they name.
-    - C. As of now, users can see the protein, carbohydrate, and fat content of their ingredients per 100 grams of said ingredient.
-    - D. Users can delete ingredients from their menus and recipes from their profile.
+     A. The primary purpose of the app is to create recipes using the FDA's food API.
+     B. Users create profiles, then favorite different foods and add those foods to dishes that they name.
+     C. As of now, users can see the protein, carbohydrate, and fat content of their ingredients per 100 grams of said ingredient.
+     D. Users can delete ingredients from their menus and recipes from their profile.
 
 
 ## III. Next Steps
