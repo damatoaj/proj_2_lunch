@@ -455,6 +455,9 @@ select {
     --font-sz-rg: .8rem;
   }
   
+  #bannerTitle {
+    padding-bottom: 0;
+  }
   h1 {
     color: red
   }
@@ -483,6 +486,12 @@ select {
     font-size: var(--font-sz-rg);
   }
 
+  #navList {
+    justify-content: flex-end;
+    padding-right: 1rem;
+    padding-bottom:.5rem;
+  }
+}
  
 
 
@@ -494,11 +503,13 @@ select {
 
   #bannerId {
     width: 40%;
+    padding-bottom: 1rem;
   }
 
   
   h1 {
-    color: black;
+    color: yellow;
+    
   }
 
   img {
@@ -532,6 +543,7 @@ select {
 
     #bannerId {
       width: 40%;
+      
     }
   
     h1{
@@ -573,4 +585,3 @@ select {
       box-shadow: none;
     }
   }
-}
