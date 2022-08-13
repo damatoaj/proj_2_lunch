@@ -18,6 +18,7 @@
   --pad-mar-sm: calc(var(--pad-mar-reg) * .75);
   --pad-mar-xs: calc(var(--pad-mar-reg) * .5);
 
+  --static-font: calc(12px + 1.5vw);
   --font-sz-rg: 2rem;
   --font-sz-lg: calc(var(--font-sz-rg) * 1.5);
   --font-sz-xl: calc(var(--font-sz-rg) * 2);
@@ -103,12 +104,16 @@ body {
 
 button {
   transition: 1s;
+  margin: 10px;
+  padding: 10px;
+  font-size: var(--static-font);
+  border-radius: 5%;
 }
 
 input {
-  padding: var(--pad-mar-lg);
-  font-size: var(--font-sz-xs);
-  transition: 2s;
+  padding: var(--pad-mar-reg);
+  font-size: var(--static-font);
+  transition: 1s;
 }
 
 input:hover,
@@ -284,6 +289,15 @@ img:focus {
   box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr), -.3rem -.3rem .3rem .3rem var(--fourth-clr);
 }
 
+label {
+  font-size: var(--static-font);
+}
+
+label.middle {
+  padding-top: 5%;
+  margin-right: 10px;
+}
+
 .left {
   text-overflow: ellipsis;
   width: 25%;
@@ -296,8 +310,8 @@ img:focus {
 legend {
   color: var(--primary-clr);
   background-color: var(--fifth-clr);
-  font-size: x-large;
-  padding: var(--pad-mar-rg);
+  font-size: var(--static-font);
+  padding: var(--pad-mar-reg);
   box-shadow: .3rem .3rem .3rem .3rem var(--fourth-clr), .3rem -.3rem .3rem .3rem var(--fourth-clr), -.3rem .3rem .3rem .3rem var(--fourth-clr);
   border: 2px solid var(--primary-clr);
 }
@@ -308,9 +322,10 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: var(--pad-mar-rg);
 }
+
 
 #menuAdd {
   height: auto;
@@ -442,6 +457,14 @@ p {
   height: 90%;
   display: flex;
   justify-content: right;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
 }
 
 select {
