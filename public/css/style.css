@@ -169,7 +169,7 @@ button:focus {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: var(--pad-mar-xl);
   margin: var(--pad-mar-xl);
   height: auto;
@@ -360,12 +360,13 @@ main {
 }
 
 #menuList {
+    max-width: 300px;
     align-content: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: var(--pad-mar-xs);
-    margin: var(--pad-mar-rg);
+    margin: var(--pad-mar-reg);
     background-color: var(--fourth-clr);
     background-blend-mode: lighten;
     text-overflow: clip;

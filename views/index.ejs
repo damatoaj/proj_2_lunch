@@ -10,7 +10,7 @@
                     <label for="lunch-name">What Do You Want To Call This Recipe?</label>
                     <input type="text" name="name">
                     <input type="hidden" name="userId" id="userId" value="<%= user.dataValues.id %>">
-                    <input type="submit">
+                    <button type="submit">Submit</button>
                 </form>
             </fieldset>
         <fieldset>
@@ -18,8 +18,9 @@
                 Ingredient Search
             </legend>
             <form action="food/results" method= "POST">
-                Search For An Ingredient To Add To Your Meal: <input type="search" name="description">
-                <input type="submit">
+                <label for="Search">Search For An Ingredient To Add To Your Meal:</label>
+                <input type="search" name="description">
+                <button type="submit">Submit</button>
             </form>
         </fieldset>
         <% } else { %>
