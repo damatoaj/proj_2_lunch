@@ -1,14 +1,15 @@
 let activeLinks = document.querySelectorAll('.navLi')
 let bannerId = document.getElementById('bannerId');
-
+let splitText
 let timer;
 let char = 0;
 
 if(bannerId.textContent) {
     bannerIdAnimation(bannerId);
 }
+
 function bannerIdAnimation(elem) {
-    let splitText = elem.textContent.split('');
+    splitText = elem.textContent.split('');
     timer = setInterval(onTick, 100, elem)
     elem.textContent = '';
     for (let char = 0; char < splitText.length; char++) { 
@@ -22,11 +23,11 @@ function bannerIdAnimation(elem) {
 
 function onTick(elem){
     const span = elem.querySelectorAll('.animation')[char];
+    if (!span.classList) return
     span.classList.add('fade');
     char++
-    if(char == splitText.length) {
-        complete();
-        return;
+    if(char === splitText.length) {
+        return complete();
     }
 }
 

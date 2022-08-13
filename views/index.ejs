@@ -1,7 +1,7 @@
 <div id="home">
-    <h2>Start By Naming Your Recipe, Then Look For Ingredients To Add</h2>
     <article>
         <% if (user) { %>
+            <h2>Start By Naming Your Recipe, Then Look For Ingredients To Add</h2>
             <fieldset>
                 <legend>
                     Recipe Name
@@ -13,7 +13,6 @@
                     <input type="submit">
                 </form>
             </fieldset>
-        <% } %>
         <fieldset>
             <legend>
                 Ingredient Search
@@ -23,5 +22,8 @@
                 <input type="submit">
             </form>
         </fieldset>
+        <% } else { %>
+            <h1>Make recipes with ease by querying the USDA's food database!</h1>
+        <% } %> 
     </article>
 </div>
