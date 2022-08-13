@@ -11,6 +11,7 @@ const db = {};
 let sequelize;
 if (config.use_env_variable) {
   console.log(`${config} we are in production`)
+  console.dir(config)
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
   console.dir(sequelize)
 } else {
