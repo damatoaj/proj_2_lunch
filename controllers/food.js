@@ -1,7 +1,7 @@
 const axios = require('axios');
 const db = require('../models');
 let foodData;
-
+let query;
 
 //POST a search bar to the home bage with AXIOS that routes to the results pages
 const search = (req, res) => {
@@ -9,7 +9,8 @@ const search = (req, res) => {
     .then(response => {
         let food = response.data;
         foodData = response.data;
-        res.render('food/results', {food:food})
+        query = req.body.description;
+        res.render('food/results', { food, query: req.body.description})
     })
     .catch(err => {
         req.flash('error', err.message);
@@ -23,13 +24,15 @@ const search = (req, res) => {
 // associate the food to the user via req.user
 const addFoodToUser = (req, res) => {
     db.food.findOrCreate({
-        where: {description: req.body.description,
-        fdcid: req.body.fdcId}
+        where: {
+            description: req.body.description,
+            fdcid: req.body.fdcId
+        }
     }).then(([food, created]) => {
-        food.addUser(req.user).then(relation => {
-            console.log(`${food.description} added to ${req.user}`)
+        food.addUser(req.user).then(() => {
+            console.log(`${food.description} added to ${req.user.name}`)
         })
-        res.render('food/results', {food:foodData})
+        res.render('food/results', {food:foodData, query: query ?? ''})
     })
     .catch(err => {
         req.flash('error', err.message);
@@ -42,6 +45,8 @@ const results = (req, res) => {res.render('food/results', {food:foodData})};
 
 // /lunch GET displays all food items favorited by the user 
 const displayFood = (req, res) => {
+    if(!req.user) return 
+
     req.user.getFood()
     .then(food => {
         req.user.getLunches().then(lunches => {
@@ -62,9 +67,10 @@ const addFoodToLunch = (req, res) => {
     db.lunch.findByPk(req.body.lunchId)
     .then(lunch => {
         db.food.findByPk(req.body.foodId).then(food => {
-            lunch.addFood(food).then(relation => {
-                console.log(`${food} has this ${relation}`)
-                req.flash('success', `${food} added to ${relation}`)
+            lunch.addFood(food).then(() => {
+                console.dir(food)
+                console.dir(lunch)
+                req.flash('success', `${food.description} added to ${lunch.name}`)
                 res.redirect('/food/foods')
             })
         })
@@ -79,8 +85,8 @@ const addFoodToLunch = (req, res) => {
 const deleteFoodFromRecipe = (req, res) => {
    db.food.destroy({
         where: {fdcid:req.params.fdcId}
-   }).then((food) =>{
-       console.log(req.params.fdcId, food, 'delete this food')
+   }).then(() => {
+       req.flash('success', `Successfully deleted ingredient`)
        res.redirect('/food/foods')
    }) 
    .catch(err => {

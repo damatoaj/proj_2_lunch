@@ -1,32 +1,32 @@
 <main>
-    <h2>Look At All These Foods! Add The Ones You Like To The Menu</h2>
+    <h2>You searched for <%= query %>! Add the ones you like to the menu</h2>
     <div id="results">
         <ul class="ejsLI">
             <% food.foods.forEach(food => { %>
             <li class="nutrientLi">
                 <div>
-                    <h3 style="margin:0;padding:0;"><%= food.description %></h3>
-                    <p>
+                    <h3 style="margin:10px;padding:10px;"><%= food.description %></h3>
+                    <h4>
                         For every 100g, there are:
-                    </p>
+                    </h4>
                     <% food.foodNutrients.forEach(nutrient => { %>
                         <p>
                             <% if (nutrient.nutrientName == 'Protein') { %>
-                                <%= nutrient.nutrientName %> 
+                                - <%= nutrient.nutrientName %> 
                                 <%= nutrient.value %>
                                 <%= nutrient.unitName %>
                             <% } %>
                         </p>
                         <p>
                             <% if (nutrient.nutrientName == 'Carbohydrate, by difference') { %>
-                                Carbohydrate  
+                                - Carbohydrate  
                                 <%= nutrient.value %>
                                 <%= nutrient.unitName %>
                             <% } %>
                         </p>
                         <p>
                             <% if (nutrient.nutrientName == `Total lipid (fat)`) { %>
-                                <%= nutrient.nutrientName %>  
+                                - <%= nutrient.nutrientName %>  
                                 <%= nutrient.value %>
                                 <%= nutrient.unitName %>    
                             <% } %>
@@ -36,7 +36,7 @@
                 <form method="POST" action="/food/lunch" id="nutrientForm">
                     <input type="hidden" name="description" value="<%= food.description%>">
                     <input type="hidden" name="fdcId" value="<%= food.fdcId%>">
-                    <button type="submit">Add to Lunch</button>
+                    <button type="submit">Add to Menu</button>
                 </form>
                 <% }) %>
             </li>

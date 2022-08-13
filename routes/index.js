@@ -5,8 +5,8 @@ const indexCon = require('../controllers/index');
 
 router.get('/', indexCon.home);
 router.get('/profile', isLoggedIn, indexCon.profile);
-router.post('/', indexCon.profile);
-router.delete('/profile/:id', indexCon.delete);
-router.get('/profile/:id', indexCon.show);
+router.post('/', isLoggedIn, indexCon.profile);
+router.delete('/profile/:id', isLoggedIn, indexCon.delete);
+router.get('/profile/:id', isLoggedIn, indexCon.show);
 
 module.exports = router;
