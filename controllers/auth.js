@@ -17,7 +17,7 @@ const signup = (req, res) => {
         // if (the user was created)
           //redirect to homepage or profile
         if (created) {
-          console.log(`${user.name} was created---------------------------`);
+          console.log(`${user.name} was created`);
           passport.authenticate('local', {
             successRedirect: '/',
             successFlash: 'Welcome to this app'
@@ -27,12 +27,12 @@ const signup = (req, res) => {
           //redirect to /auth/signup
           console.log(`${user.name} has already been taken`);
           req.flash('error', `email already exists`)
-          redirect('/auth/signup');
+          res.redirect('/auth/signup');
         }
       }).catch(err => {
-          console.log(`There was an error`, err)
+          console.error(`There was an error`, err)
           req.flash('error', err.message);
-          res.redirect('/auth/signup')
+          res.redirect('auth/signup')
           //if there is an error, it's probably a validation error so return to /auth/signup
       })  
 }

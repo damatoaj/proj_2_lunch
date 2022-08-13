@@ -11,6 +11,9 @@ const search = (req, res) => {
         foodData = response.data;
         res.render('food/results', {food:food})
     })
+    .catch(err => {
+        console.error(`In function search: ${err.message}`)
+    });
 };
 
 // POST a food item to lunch page from the searched foods
@@ -23,10 +26,13 @@ const addFoodToUser = (req, res) => {
         fdcid: req.body.fdcId}
     }).then(([food, created]) => {
         food.addUser(req.user).then(relation => {
-            console.log(`+++++++++++${food.description} added to ${req.user}`)
+            console.log(`${food.description} added to ${req.user}`)
         })
         res.render('food/results', {food:foodData})
     })
+    .catch(err => {
+        console.error(`In function addFoodToUser: ${err.message}`)
+    });
 };
 
 // GET the results page
@@ -37,9 +43,12 @@ const displayFood = (req, res) => {
     req.user.getFood()
     .then(food => {
         req.user.getLunches().then(lunches => {
-            res.render('food/foods', {food:food, lunches:lunches})
+            res.render('food/foods', { food, lunches })
         })
     })
+    .catch(err => {
+        console.error(`In function displayFood: ${err.message}`)
+    });
 };
 
 //add the food to a lunch
@@ -51,10 +60,14 @@ const addFoodToLunch = (req, res) => {
     .then(lunch => {
         db.food.findByPk(req.body.foodId).then(food => {
             lunch.addFood(food).then(relation => {
+                console.log(`${food} has this ${relation}`)
                 res.redirect('/food/foods')
             })
         })
     })
+    .catch(err => {
+        console.error(`In function addFoodToLunch: ${err.message}`)
+    });
 };
 
 // /lunch DELETE take an ingredient out of the "menu"
@@ -62,9 +75,12 @@ const deleteFoodFromRecipe = (req, res) => {
    db.food.destroy({
         where: {fdcid:req.params.fdcId}
    }).then((food) =>{
-       console.log(req.params.fdcId, '-------------delete this food-------')
+       console.log(req.params.fdcId, food, 'delete this food')
        res.redirect('/food/foods')
    }) 
+   .catch(err => {
+    console.error(`In function deleteFoodFromRecipe: ${err.message}`)
+   });
 };
 
 module.exports = {
