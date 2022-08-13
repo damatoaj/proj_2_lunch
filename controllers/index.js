@@ -10,6 +10,7 @@ const profile = (req, res) => {
         res.render('profile', { lunch , user:req.user });
     })
     .catch(err => {
+      req.flash('error', err.message);
       console.error(`In function profile: ${err.message}`)
     });
 };
@@ -21,9 +22,11 @@ const newLunch = (req, res) => {
         userId: req.body.userId
     }).then((lunch) => {
         console.log(`Created ${lunch} successfully`)
+        req.flash('success', `Created ${lunch}`)
         res.redirect('/')
     })
     .catch(err => {
+      req.flash('error', err.message);
       console.error(`In function newLunch: ${err.message}`)
     });
 };
@@ -34,9 +37,11 @@ const deleteLunch = (req, res) => {
     where: {id:req.params.id}
   }).then((lunch) => {
     console.log(`Deleted ${lunch} successfully`);
+    req.flash('success', `Deleted ${lunch}`)
     res.redirect('/profile');
   })
   .catch(err => {
+    req.flash('error', err.message);
     console.error(`In function deleteLunch: ${err.message}`);
   });
 };
@@ -53,6 +58,7 @@ const showFood = (req, res) => {
     res.render('show', {lunch})
   })
   .catch(err => {
+    req.flash('error', err.message);
     console.error(`In function showFood: ${err.message}`)
   });
 };

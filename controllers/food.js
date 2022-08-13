@@ -12,6 +12,7 @@ const search = (req, res) => {
         res.render('food/results', {food:food})
     })
     .catch(err => {
+        req.flash('error', err.message);
         console.error(`In function search: ${err.message}`)
     });
 };
@@ -31,6 +32,7 @@ const addFoodToUser = (req, res) => {
         res.render('food/results', {food:foodData})
     })
     .catch(err => {
+        req.flash('error', err.message);
         console.error(`In function addFoodToUser: ${err.message}`)
     });
 };
@@ -47,6 +49,7 @@ const displayFood = (req, res) => {
         })
     })
     .catch(err => {
+        req.flash('error', err.message);
         console.error(`In function displayFood: ${err.message}`)
     });
 };
@@ -61,11 +64,13 @@ const addFoodToLunch = (req, res) => {
         db.food.findByPk(req.body.foodId).then(food => {
             lunch.addFood(food).then(relation => {
                 console.log(`${food} has this ${relation}`)
+                req.flash('success', `${food} added to ${relation}`)
                 res.redirect('/food/foods')
             })
         })
     })
     .catch(err => {
+        req.flash('error', err.message);
         console.error(`In function addFoodToLunch: ${err.message}`)
     });
 };
@@ -79,6 +84,7 @@ const deleteFoodFromRecipe = (req, res) => {
        res.redirect('/food/foods')
    }) 
    .catch(err => {
+    req.flash('error', err.message);
     console.error(`In function deleteFoodFromRecipe: ${err.message}`)
    });
 };
