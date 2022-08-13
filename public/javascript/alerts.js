@@ -1,5 +1,5 @@
-let alertSuccess = document.getElementById('alert-container success');
-let alertError = document.getElementById('alert-container error');
+let alertSuccess = document.getElementById('alert-container-success');
+let alertError = document.getElementById('alert-container-error');
 let alertMessage = document.getElementById('alert');
 
 if (alertMessage) {

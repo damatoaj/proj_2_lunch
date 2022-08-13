@@ -1,5 +1,5 @@
 <% if (alerts.error) { %>
-    <div id='alert-container error'>
+    <div id='alert-container-error'>
     <% alerts.error.forEach(msg => { %>
        <p id='alert'> <%= msg %> </p>
     <% }) %>
@@ -7,7 +7,7 @@
 <% } %>
 
 <% if (alerts.success) { %>
-    <div id='alert-container success'>
+    <div id='alert-container-success'>
     <% alerts.success.forEach(msg => { %>
         <p id='alert'> <%= msg %> </p>
         <% }) %>
