@@ -1,5 +1,7 @@
 const db = require('../models');
+const chalk = require('chalk');
 
+const log = console.log;
 //render home page
 const home = (req, res) => {res.render('index', {user:req.user})};
 

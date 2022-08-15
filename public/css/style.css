@@ -26,6 +26,10 @@
   --font-sz-xs: calc(var(--font-sz-rg) * .5);
 }
 
+address {
+  border-right: dotted 5px black;
+}
+
 .animation {
   opacity: 0;
   transition: all .1s ease;
@@ -319,11 +323,11 @@ label.middle {
 
 .left {
   text-overflow: ellipsis;
-  width: 25%;
+  width: 40%;
   text-align: left;
-  border:solid 2px var(--fifth-clr);
-  border-radius: 10% 45% 45% 10%;
   height: 90%;
+  padding-top: 5%;
+  padding-left: 8%;
 }
 
 legend {
@@ -469,11 +473,9 @@ p {
 }
 
 .right {
-  padding-right: 0;
-  width: 75%;
+  padding-right: 4%;
+  width: 60%;
   text-align: right;
-  border:solid 2px var(--fifth-clr);
-  border-radius: 45% 10% 10% 45%;
   height: 90%;
   display: flex;
   justify-content: right;
@@ -488,8 +490,10 @@ p {
 }
 
 select {
-  padding: var(--pad-mar-xs);
-  margin-top: var(--pad-mar-xs);
+  padding: var(--pad-mar-sm);
+  margin-top: var(--pad-mar-sm);
+  margin-bottom: var(--pad-mar-sm);
+  font-size: var(--static-font);
 }
 
 @media screen and (max-width: 1030px) {
